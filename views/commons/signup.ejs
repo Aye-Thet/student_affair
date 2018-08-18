@@ -1,10 +1,44 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title><%= title %></title>
-  </head>
-  <body>
+<head>
+  <% include ../partial/head %>
 
+  <title>Student Affair | </title>
+
+</head>
+  <body class="login">
+    <div class="login_wrapper">
+      <div id="reguster">
+        <section class="login_content">
+          <form>
+            <h1>Create Account</h1>
+            <div>
+              <input type="text" class="form-control" placeholder="Username" required="" />
+            </div>
+            <div>
+              <input type="email" class="form-control" placeholder="Email" required="" />
+            </div>
+            <div>
+              <input type="password" class="form-control" placeholder="Password" required="" />
+            </div>
+            <div>
+              <a class="btn btn-default submit" href="/login">Sign Up</a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="separator">
+              <p class="change_link">Already a member ?
+                <a href="/login" class="to_register"> Log in </a>
+              </p>
+
+              <div class="clearfix"></div>
+              <br />
+
+            </div>
+          </form>
+        </section>
+      </div>
+    </div>
   </body>
 </html>
