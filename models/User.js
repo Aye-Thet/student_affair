@@ -12,9 +12,9 @@ var User = {
     var sql = 'SELECT * FROM user WHERE email = ?';
     return db.query(sql, [email], callback);
   },
-  // compare: function(cleartext, encrypted){
-  //   return bcrypt.compareSync(cleartext, encrypted);
-  // }
+  compare: function(cleartext, encrypted){
+    return bcrypt.compareSync(cleartext, encrypted);
+  }
 };
 
 module.exports = User;

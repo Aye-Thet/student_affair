@@ -51,6 +51,20 @@ router.get('/login', function(req, res, next) {
   res.render('commons/login', {title: 'Login Form'});
 });
 
+/* POST login action. */
+router.post('/login', function(req, res, next){
+  User.findByEmail(req.body.email, function(err, user){
+    if(err) next(err);
+    if(user.length == 0 || !User.compare(req.body.password, user[0].password)){
+      req.flash('warning', 'Email not exists or password not matched!!');
+      res.redirect('/login');
+    }else{
+      req.session.user = { uid: user[0].uid, name: user[0].name, email: user[0].email}
+      res.redirect('/');
+    }
+  });
+});
+
 /* IT . */
 router.get('/IT', function(req, res, next) {
   res.render('student/major/IT');
