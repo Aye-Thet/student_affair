@@ -10,20 +10,13 @@
     <div class="login_wrapper">
       <div id="reguster">
         <section class="login_content">
-          <form>
+          <form id="signup" action="/signup" method="post">
             <h1>Create Account</h1>
-            <div>
-              <input type="text" class="form-control" placeholder="Username" required="" />
-            </div>
-            <div>
-              <input type="email" class="form-control" placeholder="Email" required="" />
-            </div>
-            <div>
-              <input type="password" class="form-control" placeholder="Password" required="" />
-            </div>
-            <div>
-              <a class="btn btn-default submit" href="/login">Sign Up</a>
-            </div>
+              <input type="text" name="name" class="form-control" placeholder="Username" required="" /><p>
+              <input type="email" name="email" id="email" class="form-control" placeholder="Email" required="" /><p>
+              <input type="password" name="password" class="form-control" placeholder="Password" required="" /><p>
+              <input type="password" name="repassword" class="form-control" placeholder="Confirm Password" required="" /><p>
+              <input type="button" class="btn btn-default submit" id="save" name="" value="Sign Up">
 
             <div class="clearfix"></div>
 
@@ -41,4 +34,48 @@
       </div>
     </div>
   </body>
+
+  <script src="/js/jquery.min.js" charset="utf-8"></script>
+   <script src="/js/jquery.validate.js" charset="utf-8"></script>
+   <script type="text/javascript">
+     $(function () {
+       $.validator.addMethod("pwcheck", function(value) {
+         return /^[A-Za-z0-9\d=!\-@._*]*$/.test(value) // consists of only these
+             && /[a-z]/.test(value) // has a lowercase letter
+             && /[A-Z]/.test(value) // has a uppercase letter
+             && /\d/.test(value) // has a digit
+           });
+           $('#signup').validate({
+               rules: {
+                   'repassword': {
+                       equalTo: '[name="password"]'
+                   },
+                   'password':{
+                       pwcheck: true
+                   }
+               },
+               messages: {
+                   password: {
+                     pwcheck: "Type in uppercase letters, lowercase letters, and numbers.",
+                   }
+               },
+           });
+           $('#save').on('click', function(){
+             $.post('/dupemail', {email: $('#email').val()}).done(function(res){
+               if(res.status){
+                 alert(res.msg);
+                 $('#email').select();
+               }else{
+                 $('#signup').submit();
+               }
+             }).fail(function(err){
+               alert(err.status + ' ' + err.responseText);
+             });
+           });
+           <% if(messages.warn) { %>
+             alert('<%=messages.warn%>');
+           <% } %>
+     });
+   </script>
+
 </html>
