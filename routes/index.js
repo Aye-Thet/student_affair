@@ -48,7 +48,8 @@ router.post('/dupemail', function(req, res, next){
 
 /* GET login page. */
 router.get('/login', function(req, res, next) {
-  res.render('commons/login', {title: 'Login Form'});
+  var email = (req.cookies.email)?req.cookies.email:'';
+  res.render('commons/login', {title: 'Login Form', email:email});
 });
 
 /* POST login action. */
@@ -60,6 +61,8 @@ router.post('/login', function(req, res, next){
       res.redirect('/login');
     }else{
       req.session.user = { uid: user[0].uid, name: user[0].name, email: user[0].email}
+      if(req.body.rememberme) res.cookie('email', user[0].email, {maxAge: 86400*7})
+      else res.cookie('email', '', {maxAge: 0});
       res.redirect('/');
     }
   });
