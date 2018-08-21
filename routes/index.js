@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 
 /* blank page. */
 router.get('/home', function(req, res, next) {
-  res.render('Home');
+  res.render('Home', {title: 'Home Page'});
 });
 
 /* GET signup page. */
@@ -66,6 +66,12 @@ router.post('/login', function(req, res, next){
       res.redirect('/');
     }
   });
+});
+
+/* GET signout. */
+router.get('/logout', function(req, res, next){
+  req.session.destroy();
+  res.redirect('/');
 });
 
 /* IT . */
