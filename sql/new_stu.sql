@@ -1,0 +1,16 @@
+CREATE TABLE db_STUaffair.new_student (
+  new_stuid INT NOT NULL AUTO_INCREMENT,
+  stu_name VARCHAR(45) NOT NULL,
+  s_year VARCHAR(45) NOT NULL,
+  nrc_no VARCHAR(20) NOT NULL,
+  photo INT NOT NULL,
+  gender CHAR(1) NOT NULL,
+  birthday DATE NOT NULL,
+  religion VARCHAR(45) NULL,
+  nationality VARCHAR(45) NOT NULL,
+  address VARCHAR(128) NOT NULL,
+  phone_no INT NOT NULL,
+  updated DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+  inserted DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (new_stuid),
+  UNIQUE INDEX new_stuid_UNIQUE (new_stuid ASC));
