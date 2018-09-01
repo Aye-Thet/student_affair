@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partial/head %>
+    <title>Student Affair | </title>
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="/home" class="site_title"><i class="fa fa-leaf"></i> <span>Student Affair</span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <% include ../partial/menu_profile %>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <% include ../partial/sidebar %>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <% include ../partial/menu_footer %>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <% include ../partial/top_nav %>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+
+          <div class="x_title">
+            <h5><b><a href="../"> Home </a> > Attendance > <a href="/add_attendance"> Add Attendance</a> </b> </h5>
+
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>List of Department</h2>
+                  <div class="clearfix"></div>
+
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>No</th>
+                        <th>Department Name</th>
+                        <th>Head of Department</th>
+                        <th>Total Student</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td><a href="/admin/users/C"> Civil </a></td>
+                        <td>Daw </td>
+                        <td>97</td>
+                        <td>Edit</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td><a href="/admin/users/EC"> Electronic Communication </a></td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                        <td>Edit</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td><a href="/admin/users/EP"> Electronic Power </a></td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                        <td>Edit</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">4</th>
+                        <td><a href="/admin/users/MP"> Mechanical Power </a></td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                        <td>Edit</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">5</th>
+                        <td><a href="/admin/users/IT"> Informaton Technology </a></td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                        <td>Edit</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">6</th>
+                        <td><a href="/admin/users/MC"> Mechanical </a></td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                        <td>Edit</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <% include ../partial/footer %>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <% include ../partial/script %>
+  </body>
+</html>

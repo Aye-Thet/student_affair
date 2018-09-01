@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <% include ../partial/head %>
-    <title>Student Affair | </title>
+
+    <title>Student Affair System | </title>
 
   </head>
 
@@ -17,7 +18,7 @@
 
             <div class="clearfix"></div>
 
-            <!-- menu profile quhk info -->
+            <!-- menu profile quick info -->
             <% include ../partial/menu_profile %>
             <!-- /menu profile quick info -->
 
@@ -40,317 +41,305 @@
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
+            <div class="x_title">
+              <h5><b><a href="/">Home</a> > Student Registration > <a href="/admin/users/new"> New Student </a> </a> </b></h5>
+              <div class="clearfix"></div>
+            </div>
+
             <div class="clearfix"></div>
 
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Student Basic Information</h2>
+                    <h2>Registration New Student</h2>
                     <div class="clearfix"></div>
                   </div>
-                  <div class="x_content">
-                    <div class="" role="tabpanel" data-example-id="togglable-tabs">
-                    <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-                      <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Personal Informtion</a>
-                      </li>
-                      <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Family Informtion</a>
-                      </li>
-                      <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">High School Information</a>
-                      </li>
-                      <li role="presentation" class=""><a href="#tab_content4" role="tab" id="profile-tab3" data-toggle="tab" aria-expanded="false">Major Choice</a>
-                      </li>
-                    </ul>
+                  <form action="" method="post" class="form-horizontal form-label-left" novalidate>
 
-                    <form action="" method="post" class="form-horizontal form-label-left" novalidate>
-                      <div id="myTabContent" class="tab-content">
-                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                    <div class="col-md-6 col-sm-3 col-xs-12 profile_left">
 
-                          <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Photo <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input id="photo" name="photo" type="file" required="required">
-                            </div>
-                          </div>
-
-                          <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="Enter Student Name" required="required" type="text">
-                            </div>
-                          </div>
-
-                          <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id">ID <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="text" id="id" name="id" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Stduent ID">
-                            </div>
-                          </div>
-
-                          <div class="item form-group">
-                            <label for="" class="control-label col-md-3 col-sm-3 col-xs-12">Year <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <select class="" name="s_year" style="width: 200px; height: 35px" required="required">
-                                <option value=""><-- Select Year --></option>
-                                <option value="1F">First Year</option>
-                                <option value="2S">Second Year</option>
-                                <option value="3T">Third Year</option>
-                                <option value="4F">Forth Year</option>
-                                <option value="5F">Five Year</option>
-                                <option value="6S">Sixth Year</option>
-                              </select>
-                            </div>
-                          </div>
-
-                          <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nrc_no">NRC No. <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="NRC" id="nrc_no" name="nrc_no" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Student NRC No.">
-                            </div>
-                          </div>
-
-                          <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              Male:
-                              <input type="radio" class="flat" name="gender" id="genderM" value="M" checked="" required />
-                              Female:
-                              <input type="radio" class="flat" name="gender" id="genderF" value="F" />
-                            </div>
-                          </div>
-
-                          <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="birthday">Birthdate <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="date" id="birthday" name="birthday" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Student Birthdate">
-                            </div>
-                          </div>
-
-                          <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="religion">Religion <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="text" id="religion" name="religion" required="required" placeholder="Enter Student Religion" class="form-control col-md-7 col-xs-12">
-                            </div>
-                          </div>
-
-                          <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nationality">Nationality <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="text" id="nationality" name="nationality" required="required" placeholder="Enter Student Nationality" class="form-control col-md-7 col-xs-12">
-                            </div>
-                          </div>
-
-                          <div class="item form-group">
-                            <label for="address" class="control-label col-md-3">Address</label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input id="address" type="address" name="address" class="form-control col-md-7 col-xs-12" required="required" placeholder="Enter Address">
-                            </div>
-                          </div>
-
-                          <div class="item form-group">
-                            <label for="phone_no" class="control-label col-md-3 col-sm-3 col-xs-12">Phone No. </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input id="phone_no" type="tel" name="phone_no" class="form-control col-md-7 col-xs-12" required="required" placeholder="Enter Phone Number">
-                            </div>
-                          </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="photo">Photo <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input id="photo" name="photo" type="file" required="required">
                         </div>
+                      </div>
 
-                        <!-- <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
-                          <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="father_name">Father Name <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input id="father_name" class="form-control col-md-7 col-xs-12" name="father_name" placeholder="Enter Father Name" required="required" type="text">
-                            </div>
-                          </div>
-
-                          <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="f_nrc">NRC No.
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input id="f_nrc" class="form-control col-md-7 col-xs-12" name="f_nrc" required="required" placeholder="Enter Father NRC Number" type="NRC">
-                            </div>
-                          </div>
-
-                          <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="f_occupation">Occupation <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="text" id="f_occupation" name="f_occupation" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Father Occupation">
-                            </div>
-                          </div>
-
-                          <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="f_religion">Religion <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="text" id="f_religion" name="f_religion" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Father Religion">
-                            </div>
-                          </div>
-
-                          <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="f_nationality">Nationality <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="text" id="f_nationality" name="f_nationality" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Father Nationality">
-                            </div>
-                          </div>
-
-                          <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="mother_name">Mother Name <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input id="mother_name" class="form-control col-md-7 col-xs-12" name="mother_name" placeholder="Enter Mother Name" required="required" type="text">
-                            </div>
-                          </div>
-
-                          <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="m_nrc">NRC No.
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input id="m_nrc" class="form-control col-md-7 col-xs-12" name="m_nrc" required="required" placeholder="Enter Mother NRC Number" type="NRC">
-                            </div>
-                          </div>
-
-                          <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="m_occupation">Occupation</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="text" id="m_occupation" name="m_occupation" class="form-control col-md-7 col-xs-12" placeholder="Enter Mpther Occupation">
-                            </div>
-                          </div>
-
-                          <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="m_religion">Religion <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="text" id="m_religion" name="m_religion" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Mother Religion">
-                            </div>
-                          </div>
-
-                          <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="m_nationality">Nationality <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="text" id="m_nationality" name="m_nationality" required="required" placeholder="Enter Mother Nationality" class="form-control col-md-7 col-xs-12">
-                            </div>
-                          </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="Enter Student Name" required="required" type="text">
                         </div>
+                      </div>
 
-                        <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab2">
-
-                          <div class="item form-group">
-                            <label for="high_school_name" class="control-label col-md-3 col-sm-3 col-xs-12">High School Name <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="text" name="high_school_name" id="high_school_name" required="required" placeholder="Enter High School Name" class="form-control col-md-7 col-xs-12">
-                            </div>
-                          </div>
-
-                          <div class="item form-group">
-                            <label for="high_school_success_year" class="control-label col-md-3 col-sm-3 col-xs-12">High School Success Year <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="date" name="high_school_success_year" id="high_school_success_year" required="required" placeholder="Enter High School Success Year" class="form-control col-md-7 col-xs-12">
-                            </div>
-                          </div>
-
-                          <div class="item form-group">
-                            <label for="high_school_roll_no" class="control-label col-md-3 col-sm-3 col-xs-12">High School Roll No. <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="text" name="high_school_roll_no" id="high_school_roll_no" required="required" placeholder="Enter High School Roll Number" class="form-control col-md-7 col-xs-12">
-                            </div>
-                          </div>
-
-                            <div class="item form-group">
-                              <label for="examiner_dep" class="control-label col-md-3 col-sm-3 col-xs-12">Department of Examiner <span class="required">*</span>
-                              </label>
-                              <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" name="examiner_dep" id="examiner_dep" required="required" placeholder="Enter Department of Examimer" class="form-control col-md-7 col-xs-12">
-                              </div>
-                            </div>
-
-                            <div class="item form-group">
-                              <label for="high_school_subject_mark" class="control-label col-md-3 col-sm-3 col-xs-12">High School Subject Mark <span class="required">*</span>
-                              </label>
-                              <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="file" name="high_school_subject_mark" id="high_school_subject_mark" required="required">
-                              </div>
-                            </div>
-
-                          <div class="item form-group">
-                            <label for="high_school_total_mark" class="control-label col-md-3 col-sm-3 col-xs-12">High School Total Mark <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="number" name="high_school_total_mark" id="high_school_total_mark" required="required" placeholder="Enter High School Total Mark" min="240" max="600" class="form-control col-md-7 col-xs-12">
-                            </div>
-                          </div>
-
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id">ID <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input type="text" id="id" name="id" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Stduent ID">
                         </div>
+                      </div>
 
-                        <div role="tabpanel" class="tab-pane fade" id="tab_content4" aria-labelledby="profile-tab3">
+                      <div class="item form-group">
+                        <label for="" class="control-label col-md-3 col-sm-3 col-xs-12">Year <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <select class="optional form-control col-md-7 col-xs-12" name="s_year" style="height: 35px" required="required">
+                            <option value=""><-- Select Year --></option>
+                            <option value="1F">First Year</option>
+                            <option value="2S">Second Year</option>
+                            <option value="3T">Third Year</option>
+                            <option value="4F">Forth Year</option>
+                            <option value="5F">Five Year</option>
+                            <option value="6S">Sixth Year</option>
+                          </select>
+                        </div>
+                      </div>
 
-                          <div class="item form-group">
-                            <label for="major" class="control-label col-md-3 col-sm-3 col-xs-12">Major Select <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="checkbox" name="C" value="" />
-                              <label for="C">Civil</label><br>
-                              <input type="checkbox" name="EC" value="" />
-                              <label for="EC">Electronic Communication</label><br>
-                              <input type="checkbox" name="EP" value="" />
-                              <label for="EP">Electronic Power</label><br>
-                              <input type="checkbox" name="MP" value="" />
-                              <label for="MP">Mechanical Power</label><br>
-                              <input type="checkbox" name="IT" value="" />
-                              <label for="IT">Information Technology</label><br>
-                              <input type="checkbox" name="MC" value="" />
-                              <label for="MC">Mechanical</label><br>
-                            </div>
-                          </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nrc_no">NRC No. <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input type="NRC" id="nrc_no" name="nrc_no" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Student NRC No.">
+                        </div>
+                      </div>
 
-                          <div class="item form-group">
-                            <label for="health_rec" class="control-label col-md-3 col-sm-3 col-xs-12">Health Recommendation <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="file" name="health_rec" id="health_rec" required="required">
-                            </div>
-                          </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="birthday">Birthdate <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input type="date" id="birthday" name="birthday" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Student Birthdate">
+                        </div>
+                      </div>
 
-                          <div class="item form-group">
-                            <label for="police_rec" class="control-label col-md-3 col-sm-3 col-xs-12">Police Recommendation <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="file" name="police_rec" id="police_rec" required="required">
-                            </div>
-                          </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="religion">Religion <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input type="text" id="religion" name="religion" required="required" placeholder="Enter Student Religion" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
 
-                        </div> -->
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nationality">Nationality <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input type="text" id="nationality" name="nationality" required="required" placeholder="Enter Student Nationality" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
 
-                          <div class="ln_solid"></div>
-                          <div class="form-group">
-                            <div class="col-md-6 col-md-offset-3">
-                              <button type="submit" class="btn btn-primary">Cancel</button>
-                              <button class="btn btn-primary" type="reset">Reset</button>
-                              <button id="send" type="submit" class="btn btn-success">Submit</button>
-                            </div>
-                          </div>
-                        </form>
+                      <div class="item form-group">
+                        <label for="address" class="control-label col-md-3">Address</label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input id="address" type="address" name="address" class="form-control col-md-7 col-xs-12" required="required" placeholder="Enter Address">
+                        </div>
+                      </div>
+
+                      <div class="item form-group">
+                        <label for="phone_no" class="control-label col-md-3 col-sm-3 col-xs-12">Phone No. </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input id="phone_no" type="tel" name="phone_no" class="form-control col-md-7 col-xs-12" required="required" placeholder="Enter Phone Number">
+                        </div>
+                      </div>
+
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          Male:
+                          <input type="radio" class="flat" name="gender" id="genderM" value="M" checked="" required="required" class="col-md-8 col-sm-6 col-xs-12" />
+                          Female:
+                          <input type="radio" class="flat" name="gender" id="genderF" value="F" class="col-md-8 col-sm-6 col-xs-12"/>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <div class="col-md-6 col-sm-3 col-xs-12 profile_left">
+
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="father_name">Father Name <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input id="father_name" class="form-control col-md-7 col-xs-12" name="father_name" placeholder="Enter Father Name" required="required" type="text">
+                        </div>
+                      </div>
+
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="f_nrc">NRC No.
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input id="f_nrc" class="form-control col-md-7 col-xs-12" name="f_nrc" required="required" placeholder="Enter Father NRC Number" type="NRC">
+                        </div>
+                      </div>
+
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="f_occupation">Occupation <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input type="text" id="f_occupation" name="f_occupation" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Father Occupation">
+                        </div>
+                      </div>
+
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="f_religion">Religion <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input type="text" id="f_religion" name="f_religion" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Father Religion">
+                        </div>
+                      </div>
+
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="f_nationality">Nationality <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input type="text" id="f_nationality" name="f_nationality" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Father Nationality">
+                        </div>
+                      </div>
+
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="mother_name">Mother Name <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input id="mother_name" class="form-control col-md-7 col-xs-12" name="mother_name" placeholder="Enter Mother Name" required="required" type="text">
+                        </div>
+                      </div>
+
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="m_nrc">NRC No.
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input id="m_nrc" class="form-control col-md-7 col-xs-12" name="m_nrc" required="required" placeholder="Enter Mother NRC Number" type="NRC">
+                        </div>
+                      </div>
+
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="m_occupation">Occupation</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input type="text" id="m_occupation" name="m_occupation" class="form-control col-md-7 col-xs-12" placeholder="Enter Mpther Occupation">
+                        </div>
+                      </div>
+
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="m_religion">Religion <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input type="text" id="m_religion" name="m_religion" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Mother Religion">
+                        </div>
+                      </div>
+
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="m_nationality">Nationality <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input type="text" id="m_nationality" name="m_nationality" required="required" placeholder="Enter Mother Nationality" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <div class="x_panel">
+
+                      <div class="item form-group">
+                        <label for="high_school_name" class="control-label col-md-4 col-sm-3 col-xs-12">High School Name <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input type="text" name="high_school_name" id="high_school_name" required="required" placeholder="Enter High School Name" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+
+                      <div class="item form-group">
+                        <label for="high_school_success_year" class="control-label col-md-4 col-sm-3 col-xs-12">High School Success Year <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input type="date" name="high_school_success_year" id="high_school_success_year" required="required" placeholder="Enter High School Success Year" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+
+                      <div class="item form-group">
+                        <label for="examiner_dep" class="control-label col-md-4 col-sm-3 col-xs-12">Department of Examiner <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input type="text" name="examiner_dep" id="examiner_dep" required="required" placeholder="Enter Department of Examimer" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+
+                      <div class="item form-group">
+                        <label for="high_school_roll_no" class="control-label col-md-4 col-sm-3 col-xs-12">High School Roll No. <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input type="text" name="high_school_roll_no" id="high_school_roll_no" required="required" placeholder="Enter High School Roll Number" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+
+                      <div class="item form-group">
+                        <label for="high_school_total_mark" class="control-label col-md-4 col-sm-3 col-xs-12">High School Total Mark <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input type="number" name="high_school_total_mark" id="high_school_total_mark" required="required" placeholder="Enter High School Total Mark" min="240" max="600" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+
+                      <div class="item form-group">
+                        <label for="high_school_subject_mark" class="control-label col-md-4 col-sm-3 col-xs-12">High School Subject Mark <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input type="file" name="high_school_subject_mark" id="high_school_subject_mark" required="required">
+                        </div>
+                      </div>
+
+                      <div class="item form-group">
+                        <label for="health_rec" class="control-label col-md-4 col-sm-3 col-xs-12">Health Recommendation <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input type="file" name="health_rec" id="health_rec" required="required">
+                        </div>
+                      </div>
+
+                      <div class="item form-group">
+                        <label for="police_rec" class="control-label col-md-4 col-sm-3 col-xs-12">Police Recommendation <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input type="file" name="police_rec" id="police_rec" required="required">
+                        </div>
+                      </div>
+
+                      <!-- <div class="item form-group">
+                        <label for="major_choice" class="control-label col-md-6 col-sm-3 col-xs-12">Major Choice <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <select class="" name="major_choice" multiple>
+                            <option value="">Major Choice</option>
+                            <option value="C">Civil</option>
+                            <option value="EC">Electronic Communication</option>
+                            <option value="EP">Electrical Power</option>
+                            <option value="MP">Mechanical Power</option>
+                            <option value="IT">Information Technology</option>
+                            <option value="MC">Mechatronic</option>
+                          </select>
+                        </div>
+                      </div> -->
+
+                    </div>
+
+                    <div class="ln_solid"></div>
+                    <div class="form-group">
+                      <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3" align="center">
+                        <button class="btn btn-primary" type="reset">Reset</button>
+                        <button type="submit" class="btn btn-success">Submit</button>
                       </div>
                     </div>
-                  </div>
+
+
+                </form>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
         <!-- /page content -->
 
         <!-- footer content -->
@@ -359,21 +348,8 @@
       </div>
     </div>
 
-    <!-- jQuery -->
-    <script src="../vendors/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- FastClick -->
-    <script src="../vendors/fastclick/lib/fastclick.js"></script>
-    <!-- NProgress -->
-    <script src="../vendors/nprogress/nprogress.js"></script>
-    <!-- validator -->
-    <script src="../vendors/validator/validator.js"></script>
-    <!-- Select2 -->
-    <script src="../vendors/select2/dist/js/select2.full.min.js"></script>
-
-    <!-- Custom Theme Scripts -->
-    <script src="../build/js/custom.min.js"></script>
-
+    <!-- script content -->
+    <% include ../partial/script %>
+    <!-- /script content -->
   </body>
 </html>

@@ -17,7 +17,7 @@ var validator = (function($){
     message = {
         invalid         : 'invalid input',
         checked         : 'must be checked',
-        empty           : 'please put something here',
+        empty           : 'please input',
         min             : 'input is too short',
         max             : 'input is too long',
         number_min      : 'too low',
@@ -29,7 +29,7 @@ var validator = (function($){
         password_repeat : 'passwords do not match',
         repeat          : 'no match',
         complete        : 'input is not complete',
-        select          : 'Please select an option'
+        select          : 'Please select'
     };
 
     if(!window.console){

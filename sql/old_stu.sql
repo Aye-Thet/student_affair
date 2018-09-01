@@ -1,5 +1,5 @@
-CREATE TABLE db_STUaffair.new_student (
-  new_stuid INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE db_STUaffair.old_student (
+  old_stuid INT NOT NULL AUTO_INCREMENT,
   name VARCHAR(45) NOT NULL,
   nrc_no VARCHAR(20) NOT NULL,
   s_year VARCHAR(20) NOT NULL,
@@ -20,15 +20,9 @@ CREATE TABLE db_STUaffair.new_student (
   m_occupation VARCHAR(45) NULL,
   m_religion VARCHAR(45) NULL,
   m_nationality VARCHAR(45) NOT NULL,
-  high_school_name VARCHAR(45) NOT NULL,
   high_school_success_year DATE NOT NULL,
   high_school_roll_no VARCHAR(10) NOT NULL,
-  examiner_dep VARCHAR(128) NOT NULL,
-  high_school_subject_mark VARCHAR(45) NOT NULL,
-  high_school_total_mark VARCHAR(45) NOT NULL,
-  health_rec VARCHAR(45) NOT NULL,
-  police_rec VARCHAR(45) NOT NULL,
   updated DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
   inserted DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (new_stuid),
-  UNIQUE INDEX new_stuid_UNIQUE (new_stuid ASC));
+  PRIMARY KEY (old_stuid),
+  UNIQUE INDEX old_stuid_UNIQUE (old_stuid ASC));

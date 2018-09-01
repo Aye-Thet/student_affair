@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <% include partial/head %>
-
     <title>Student Affair | </title>
 
   </head>
@@ -13,12 +12,12 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="/" class="site_title"><i class="fa fa-leaf"></i> <span>Student Affair!</span></a>
+              <a href="/" class="site_title"><i class="fa fa-leaf"></i> <span>Student Affair</span></a>
             </div>
 
             <div class="clearfix"></div>
 
-            <!-- menu profile quick info -->
+            <!-- menu profile quhk info -->
             <% include partial/menu_profile %>
             <!-- /menu profile quick info -->
 
@@ -41,8 +40,17 @@
         <!-- page content -->
         <div class="right_col" role="main">
 
+          <div class="x_title">
+            <h5><a href="/"> <b>Home</b> </a></h5>
+
+            <div class="clearfix"></div>
+          </div>
+
+
           <div class="">
-            <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="clearfix"></div>
+
+            <div class="animated flipInY col-lg-4 col-md-3 col-sm-6 col-xs-12">
               <div class="tile-stats">
                 <div class="icon"><i class="fa fa-users"></i></div>
                 <h3>Total Student</h3>
@@ -51,24 +59,96 @@
               </div>
             </div>
 
-            <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="animated flipInY col-lg-4 col-md-3 col-sm-6 col-xs-12">
+              <div class="tile-stats">
+                <div class="icon"><i class="fa fa-users"></i></div>
+                <h3>New Student</h3>
+                <div class="count">1045</div>
+                <p>2017/2018 Academic</p>
+              </div>
+            </div>
+
+            <div class="animated flipInY col-lg-4 col-md-3 col-sm-6 col-xs-12">
               <div class="tile-stats">
                 <div class="icon"><i class="fa fa-caret-square-o-right"></i></div>
                 <h3>List of Admin</h3>
                 <div class="count">5</div>
-                <p>Lorem ipsum psdea itgum rixt.</p>
+                <p>2017/2018 Academic</p>
               </div>
             </div>
 
-          </div>
-        </div>
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>List of Department</h2>
+                    <div class="clearfix"></div>
+
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Department Name</th>
+                          <th>Head of Department</th>
+                          <th>Total Student</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Civil </td>
+                          <td>Daw </td>
+                          <td>97</td>
+                          <td>Edit</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Electronic Communication</td>
+                          <td>Thornton</td>
+                          <td>@fat</td>
+                          <td>Edit</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td>Electronic Power</td>
+                          <td>the Bird</td>
+                          <td>@twitter</td>
+                          <td>Edit</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">4</th>
+                          <td>Mechanical Power</td>
+                          <td>the Bird</td>
+                          <td>@twitter</td>
+                          <td>Edit</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">5</th>
+                          <td>Informaton Technology</td>
+                          <td>the Bird</td>
+                          <td>@twitter</td>
+                          <td>Edit</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">6</th>
+                          <td>Mechanical</td>
+                          <td>the Bird</td>
+                          <td>@twitter</td>
+                          <td>Edit</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                  </div>
+                </div>
+              </div>
+            </div>
         <!-- /page content -->
 
         <!-- footer content -->
-        <footer>
-          <% include partial/footer %>
+        <% include partial/footer %>
         <!-- /footer content -->
-
       </div>
     </div>
 
@@ -80,8 +160,13 @@
     <script src="../vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
     <script src="../vendors/nprogress/nprogress.js"></script>
+    <!-- validator -->
+    <script src="../vendors/validator/validator.js"></script>
+    <!-- Select2 -->
+    <script src="../vendors/select2/dist/js/select2.full.min.js"></script>
 
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
+
   </body>
 </html>
