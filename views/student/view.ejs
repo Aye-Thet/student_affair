@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partial/head %>
+
+    <title>Student Affair | </title>
+
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="/" class="site_title"><i class="fa fa-leaf"></i> <span>Student Affair</span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <% include ../partial/menu_profile %>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <% include ../partial/sidebar %>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <% include ../partial/menu_footer %>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <% include ../partial/top_nav %>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+
+          <div class="x_title">
+            <h5><b><a href="../">Home</a> > Student Registration > <a href="/admin/users/old"> Old Student </a> > <a href="#">Detail view</a> </b></h5>
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="">
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Student Details View</h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <form class="" action="/admin/users/remove" method="post">
+                  <input type="hidden" name="oldStu" value="<%= oldStu.oldStu %>">
+                  <div class="x_content">
+                    <div class="col-md-4 col-sm-3 col-xs-12 profile_left">
+                      <div class="profile_img">
+                        <div>
+                          <!-- Current avatar -->
+                          <img class="img-responsive avatar-view" width="150" height="150" src="<%= oldStu.photo %>" onerror="this.src='/images/nouser.png'" alt="Avatar" title="Student Photo">
+                        </div>
+                      </div>
+                      <h3><%= oldStu.name %></h3>
+
+                      <!-- start skills -->
+                      <h2> Entry Nmber: <%= oldStu.entry_no %> </h2>
+                      <h2> Year: <%= oldStu.s_year %> </h2><br>
+                      <h2> NRC Number: <%= oldStu.nrc_no %> </h2><br>
+                      <h2> Roll Number: <%= oldStu.roll_no %> </h2><br>
+                      <h2> Birthdate: <%= oldStu.birthday %> </h2><br>
+                      <h2> Gender: <%= oldStu.gender %> </h2><br>
+                      <h2> Religion: <%= oldStu.religion %> </h2><br>
+                      <h2> Nationality: <%= oldStu.nationality %> </h2><br>
+                      <h2> Address: <%= oldStu.address %> </h2><br>
+                      <h2> Phone: <%= oldStu.phone_no %> </h2>
+
+                      <!-- end of skills -->
+
+                    </div>
+                    <div class="col-md-8 col-sm-9 col-xs-12">
+
+                      <div class="profile_title">
+                        <div class="col-md-12">
+
+                          <h2>Father Name: <%= oldStu.father_name %> </h2><br>
+                          <h2>Father NRC Number: <%= oldStu.f_nrc %> </h2><br>
+                          <h2>Father Occupation: <%= oldStu.f_occupation %> </h2><br>
+                          <h2>Father Religion: <%= oldStu.f_religion %> </h2><br>
+                          <h2>Father Nationality: <%= oldStu.f_nationality %> </h2><br>
+                          <h2>Mother Name: <%= oldStu.mother_name %> </h2><br>
+                          <h2>Mother NRC Number: <%= oldStu.m_nrc %> </h2><br>
+                          <h2>Mother Occupation: <%= oldStu.m_occupation %> </h2><br>
+                          <h2>Mother Religion: <%= oldStu.m_religion %> </h2><br>
+                          <h2>Mother Nationality: <%= oldStu.m_nationality %> </h2><br>
+                          <h2>High School Name: <%= oldStu.high_school_name %>  </h2><br>
+                          <h2>High School Success Year: <%= oldStu.high_school_success_year %> </h2><br><br><br>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="ln_solid"></div>
+                  <div class="form-group">
+                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3" align="center">
+                      <button class="btn btn-primary" type="submit"><a href="javascript:del()" style="color: white"></a> Delete</button>
+                      <button class="btn btn-primary" type="button">Modify</button>
+                      <button type="button" class="btn btn-success"><a href="/admin/users/list"  style="color: white">Go to List</a></button>
+                    </div>
+                  </div>
+
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <% include ../partial/footer %>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <% include ../partial/script %>
+
+  </body>
+
+  <script type="text/javascript">
+    function del(){
+      if(confirm('Are you sure to delete this student data ? ')){
+        frm.submit();
+      }
+    }
+    <%- (messages.info) ? `alert('${messages.info}')` : '' %>
+  </script>
+
+</html>

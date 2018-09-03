@@ -42,7 +42,7 @@
         <div class="right_col" role="main">
           <div class="">
             <div class="x_title">
-              <h5><b><a href="/">Home</a> > Student Registration > <a href="/admin/users/new"> New Student </a> </a> </b></h5>
+              <h5><b><a href="/">Home</a> > Student Registration > <a href="/admin/users/old"> Old Student </a> </a> </b></h5>
               <div class="clearfix"></div>
             </div>
 
@@ -52,10 +52,10 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Registration New Student</h2>
+                    <h2>Registration Old Student</h2>
                     <div class="clearfix"></div>
                   </div>
-                  <form action="" method="post" class="form-horizontal form-label-left" novalidate>
+                  <form action="/admin/users/old" method="post" class="form-horizontal form-label-left" novalidate>
 
                     <div class="col-md-6 col-sm-3 col-xs-12 profile_left">
 
@@ -63,7 +63,15 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="photo">Photo <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input id="photo" name="photo" type="file" required="required">
+                          <input id="photo" name="photo" type="file" accept="image/x-png,image/gif,image/jpeg" required="required">
+                        </div>
+                      </div>
+
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="entry_no">Entry Number <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input id="number" class="form-control col-md-7 col-xs-12" id="entry_no" name="entry_no" placeholder="Enter Student Entry Number" required="required" type="text">
                         </div>
                       </div>
 
@@ -76,26 +84,26 @@
                       </div>
 
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id">ID <span class="required">*</span>
-                        </label>
-                        <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input type="text" id="id" name="id" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Stduent ID">
-                        </div>
-                      </div>
-
-                      <div class="item form-group">
                         <label for="" class="control-label col-md-3 col-sm-3 col-xs-12">Year <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
                           <select class="optional form-control col-md-7 col-xs-12" name="s_year" style="height: 35px" required="required">
                             <option value=""><-- Select Year --></option>
-                            <option value="1F">First Year</option>
-                            <option value="2S">Second Year</option>
+                            <option value="1T">First Year</option>
+                            <option value="2T">Second Year</option>
                             <option value="3T">Third Year</option>
-                            <option value="4F">Forth Year</option>
-                            <option value="5F">Five Year</option>
-                            <option value="6S">Sixth Year</option>
+                            <option value="4T">Forth Year</option>
+                            <option value="5T">Five Year</option>
+                            <option value="6T">Sixth Year</option>
                           </select>
+                        </div>
+                      </div>
+
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="roll_no">Roll Number <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input type="text" id="roll_no" name="roll_no" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Stduent ID">
                         </div>
                       </div>
 

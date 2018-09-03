@@ -5,7 +5,11 @@ var Student = require('../../models/Student');
 
 /*GET student list page. */
 router.get('/list', function(req, res, next) {
-  res.render('student/list');
+  var params = [req.body.keyword || '',req.body.keyword || ''];
+  Student.find(params, function(err, users) {
+    if (err) next (err);
+    res.render('student/list', {title: 'Stuent List', users: users });
+  });
 });
 
 /*GET new student register. */
@@ -60,8 +64,10 @@ router.get('/old', function(req, res, next) {
 /*POST old student register. */
 router.post('/old', function(req, res, next) {
   var params = [
+    req.body.entry_no,
     req.body.name,
     req.body.s_year,
+    req.body.roll_no,
     req.body.nrc_no,
     req.body.photo,
     req.body.gender,
@@ -83,21 +89,34 @@ router.post('/old', function(req, res, next) {
     req.body.high_school_success_year,
     req.body.high_school_roll_no
   ];
-  Student.addOld(params, function(err, oldStu) {
+  Student.addOld(params, function(err, result) {
     console.log('Data', params);
     if(err) next (err);
-    res.end('Success');
+    console.log('result', result);
+    req.flash('warn', 'Insert Success');
+    res.redirect('/admin/users/view/'+ result.insertId);
   });
 });
 
-/* GET student list*/
-router.get('/list', function(req, res, next) {
-  res.render('student/list');
+/*GET old student register. */
+router.get('/view/:id', function(req, res, next) {
+  console.log('call');
+  Student.findByID(req.params.id, function(err, oldStu) {
+    if(err) throw err;
+    console.log('////',oldStu);
+    if(oldStu.length == 0 ) next(new Error('User data not Found!'));
+
+    res.render('student/view', {title: 'Student View', oldStu: oldStu[0]});
+  });
 });
 
-/*GET old student register. */
-router.get('/view', function(req, res, next) {
-  res.render('student/new_view');
+/* GET remove */
+router.post('/remove', function(req, res, next){
+  Student.remove(req.body.old_stuid, function(err, user) {
+    if (err) throw err;
+    req.flash('info', 'Successfully');
+    res.redirect('/admin/users/list');
+  });
 });
 
 /* IT . */
