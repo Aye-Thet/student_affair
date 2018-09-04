@@ -57,29 +57,29 @@
                     <h2>Student Details View</h2>
                     <div class="clearfix"></div>
                   </div>
-                  <form class="" action="/admin/users/remove" method="post">
-                  <input type="hidden" name="oldStu" value="<%= oldStu.oldStu %>">
+                  <form id="frm" action="/admin/users/remove" method="post">
+                  <input type="hidden" name="old_stuid" value="<%= users.old_stuid %>">
                   <div class="x_content">
                     <div class="col-md-4 col-sm-3 col-xs-12 profile_left">
                       <div class="profile_img">
                         <div>
                           <!-- Current avatar -->
-                          <img class="img-responsive avatar-view" width="150" height="150" src="<%= oldStu.photo %>" onerror="this.src='/images/nouser.png'" alt="Avatar" title="Student Photo">
+                          <img src="/images/<%= users.photo %>" width="150" height="150" alt="Avatar" title="Student Photo">
                         </div>
                       </div>
-                      <h3><%= oldStu.name %></h3>
+                      <h3><%= users.name %></h3>
 
                       <!-- start skills -->
-                      <h2> Entry Nmber: <%= oldStu.entry_no %> </h2>
-                      <h2> Year: <%= oldStu.s_year %> </h2><br>
-                      <h2> NRC Number: <%= oldStu.nrc_no %> </h2><br>
-                      <h2> Roll Number: <%= oldStu.roll_no %> </h2><br>
-                      <h2> Birthdate: <%= oldStu.birthday %> </h2><br>
-                      <h2> Gender: <%= oldStu.gender %> </h2><br>
-                      <h2> Religion: <%= oldStu.religion %> </h2><br>
-                      <h2> Nationality: <%= oldStu.nationality %> </h2><br>
-                      <h2> Address: <%= oldStu.address %> </h2><br>
-                      <h2> Phone: <%= oldStu.phone_no %> </h2>
+                      <h2> Entry Nmber: <%= users.entry_no %> </h2>
+                      <h2> Year: <%= users.s_year %> </h2><br>
+                      <h2> NRC Number: <%= users.nrc_no %> </h2><br>
+                      <h2> Roll Number: <%= users.roll_no %> </h2><br>
+                      <h2> Birthdate: <%= users.birthday %> </h2><br>
+                      <h2> Gender: <%= users.gender %> </h2><br>
+                      <h2> Religion: <%= users.religion %> </h2><br>
+                      <h2> Nationality: <%= users.nationality %> </h2><br>
+                      <h2> Address: <%= users.address %> </h2><br>
+                      <h2> Phone: <%= users.phone_no %> </h2>
 
                       <!-- end of skills -->
 
@@ -89,18 +89,18 @@
                       <div class="profile_title">
                         <div class="col-md-12">
 
-                          <h2>Father Name: <%= oldStu.father_name %> </h2><br>
-                          <h2>Father NRC Number: <%= oldStu.f_nrc %> </h2><br>
-                          <h2>Father Occupation: <%= oldStu.f_occupation %> </h2><br>
-                          <h2>Father Religion: <%= oldStu.f_religion %> </h2><br>
-                          <h2>Father Nationality: <%= oldStu.f_nationality %> </h2><br>
-                          <h2>Mother Name: <%= oldStu.mother_name %> </h2><br>
-                          <h2>Mother NRC Number: <%= oldStu.m_nrc %> </h2><br>
-                          <h2>Mother Occupation: <%= oldStu.m_occupation %> </h2><br>
-                          <h2>Mother Religion: <%= oldStu.m_religion %> </h2><br>
-                          <h2>Mother Nationality: <%= oldStu.m_nationality %> </h2><br>
-                          <h2>High School Name: <%= oldStu.high_school_name %>  </h2><br>
-                          <h2>High School Success Year: <%= oldStu.high_school_success_year %> </h2><br><br><br>
+                          <h2>Father Name: <%= users.father_name %> </h2><br>
+                          <h2>Father NRC Number: <%= users.f_nrc %> </h2><br>
+                          <h2>Father Occupation: <%= users.f_occupation %> </h2><br>
+                          <h2>Father Religion: <%= users.f_religion %> </h2><br>
+                          <h2>Father Nationality: <%= users.f_nationality %> </h2><br>
+                          <h2>Mother Name: <%= users.mother_name %> </h2><br>
+                          <h2>Mother NRC Number: <%= users.m_nrc %> </h2><br>
+                          <h2>Mother Occupation: <%= users.m_occupation %> </h2><br>
+                          <h2>Mother Religion: <%= users.m_religion %> </h2><br>
+                          <h2>Mother Nationality: <%= users.m_nationality %> </h2><br>
+                          <h2>High School Roll Number: <%= users.high_school_roll_no %>  </h2><br>
+                          <h2>High School Success Year: <%= users.high_school_success_year %> </h2><br><br><br>
 
                         </div>
                       </div>
@@ -111,7 +111,7 @@
                   <div class="form-group">
                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3" align="center">
                       <button class="btn btn-primary" type="submit"><a href="javascript:del()" style="color: white"></a> Delete</button>
-                      <button class="btn btn-primary" type="button">Modify</button>
+                      <button class="btn btn-primary" type="button"><a href="/admin/users/modify/<%=users.old_stuid%>" style="color: white"> Modify </a></button>
                       <button type="button" class="btn btn-success"><a href="/admin/users/list"  style="color: white">Go to List</a></button>
                     </div>
                   </div>
@@ -136,7 +136,7 @@
 
   <script type="text/javascript">
     function del(){
-      if(confirm('Are you sure to delete this student data ? ')){
+      if(confirm('Are you sure?')){
         frm.submit();
       }
     }

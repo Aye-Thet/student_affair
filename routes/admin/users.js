@@ -87,7 +87,8 @@ router.post('/old', function(req, res, next) {
     req.body.m_religion,
     req.body.m_nationality,
     req.body.high_school_success_year,
-    req.body.high_school_roll_no
+    req.body.high_school_roll_no,
+    req.body.updated
   ];
   Student.addOld(params, function(err, result) {
     console.log('Data', params);
@@ -106,7 +107,56 @@ router.get('/view/:id', function(req, res, next) {
     console.log('////',oldStu);
     if(oldStu.length == 0 ) next(new Error('User data not Found!'));
 
-    res.render('student/view', {title: 'Student View', oldStu: oldStu[0]});
+    res.render('student/view', {title: 'Student View', users: oldStu[0]});
+  });
+});
+
+/* GET modify old student */
+router.get('/modify/:old_stuid', function(req, res, next) {
+  Student.findByID(req.params.old_stuid, function(err, oldStu) {
+    if(err) throw err;
+    if(oldStu.length == 0) next (new Error('User data not found!!!'));
+    res.render('student/modify', {title: 'Modify Old Student', users: oldStu[0]});
+  });
+});
+
+router.post('/modify', function(req, res, next) {
+  var params = [
+    req.body.entry_no,
+    req.body.name,
+    req.body.s_year,
+    req.body.roll_no,
+    req.body.nrc_no,
+    req.body.photo,
+    req.body.gender,
+    req.body.birthday,
+    req.body.religion,
+    req.body.nationality,
+    req.body.address,
+    req.body.phone_no,
+    req.body.father_name,
+    req.body.f_nrc,
+    req.body.f_occupation,
+    req.body.f_religion,
+    req.body.f_nationality,
+    req.body.mother_name,
+    req.body.m_nrc,
+    req.body.m_occupation,
+    req.body.m_religion,
+    req.body.m_nationality,
+    req.body.high_school_success_year,
+    req.body.high_school_roll_no,
+    req.body.old_stuid
+  ];
+  Student.findByID( req.body.old_stuid, function(err, users) {
+    if (err) throw err;
+    if(users.length == 0) next(new Error('User data not found!!!'));
+    Student.update(params, function(uerr, uuser) {
+      if(uerr) throw uerr;
+      console.log();
+      req.flash('info', 'Success Updated');
+      res.redirect('/admin/users/view/'+ users[0].old_stuid);
+    });
   });
 });
 

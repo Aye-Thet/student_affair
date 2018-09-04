@@ -55,23 +55,25 @@
                     <h2>Registration Old Student</h2>
                     <div class="clearfix"></div>
                   </div>
-                  <form action="/admin/users/old" method="post" class="form-horizontal form-label-left" novalidate>
-
+                  <form id="frm" action="/admin/users/modify" method="post" class="form-horizontal form-label-left" novalidate>
+                    <input type="hidden" name="old_stuid" value="<%= users.old_stuid %>">
                     <div class="col-md-6 col-sm-3 col-xs-12 profile_left">
 
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="photo">Photo <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
+                          <img src="/images/<%= users.photo %>" alt="Student Photo" onerror="this.src='/images/nouser.png'" width="150" height="150" >
                           <input id="photo" name="photo" type="file" accept="image/x-png,image/gif,image/jpeg" required="required">
                         </div>
+
                       </div>
 
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="entry_no">Entry Number <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input id="number" class="form-control col-md-7 col-xs-12" id="entry_no" name="entry_no" placeholder="Enter Student Entry Number" required="required" type="text">
+                          <input type="text" id="entry_no" class="form-control col-md-7 col-xs-12" name="entry_no" readonly value="<%= users.entry_no %>" required="required">
                         </div>
                       </div>
 
@@ -79,7 +81,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input id="name" class="form-control col-md-7 col-xs-12" name="name" placeholder="Enter Student Name" required="required" type="text">
+                          <input type="text" id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name" value="<%= users.name %>" required="required">
                         </div>
                       </div>
 
@@ -87,8 +89,7 @@
                         <label for="" class="control-label col-md-3 col-sm-3 col-xs-12">Year <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <select class="optional form-control col-md-7 col-xs-12" name="s_year" style="height: 35px" required="required">
-                            <option value=""><-- Select Year --></option>
+                          <select class="optional form-control col-md-7 col-xs-12" name="s_year" style="height: 35px" required="required" id="s_year">
                             <option value="1BE">First Year</option>
                             <option value="2BE">Second Year</option>
                             <option value="3BE">Third Year</option>
@@ -103,7 +104,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="roll_no">Roll Number <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input type="text" id="roll_no" name="roll_no" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Stduent ID">
+                          <input type="text" id="roll_no" name="roll_no" class="form-control col-md-7 col-xs-12" value="<%= users.roll_no %>" required="required">
                         </div>
                       </div>
 
@@ -111,7 +112,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nrc_no">NRC No. <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input type="NRC" id="nrc_no" name="nrc_no" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Student NRC No.">
+                          <input type="NRC" id="nrc_no" name="nrc_no" class="form-control col-md-7 col-xs-12" value="<%= users.nrc_no %>" required="required">
                         </div>
                       </div>
 
@@ -119,7 +120,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="birthday">Birthdate <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input type="date" id="birthday" name="birthday" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Student Birthdate">
+                          <input type="date" id="birthday" name="birthday" class="form-control col-md-7 col-xs-12" value="<%= users.birthday %>" required="required">
                         </div>
                       </div>
 
@@ -127,7 +128,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="religion">Religion <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input type="text" id="religion" name="religion" required="required" placeholder="Enter Student Religion" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="religion" name="religion" class="form-control col-md-7 col-xs-12" value="<%= users.religion %>" required="required">
                         </div>
                       </div>
 
@@ -135,21 +136,21 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nationality">Nationality <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input type="text" id="nationality" name="nationality" required="required" placeholder="Enter Student Nationality" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="nationality" name="nationality" class="form-control col-md-7 col-xs-12" value="<%= users.nationality %>" required="required">
                         </div>
                       </div>
 
                       <div class="item form-group">
                         <label for="address" class="control-label col-md-3">Address</label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input id="address" type="address" name="address" class="form-control col-md-7 col-xs-12" required="required" placeholder="Enter Address">
+                          <input id="address" type="address" name="address" class="form-control col-md-7 col-xs-12" value="<%= users.address %>" required="required">
                         </div>
                       </div>
 
                       <div class="item form-group">
                         <label for="phone_no" class="control-label col-md-3 col-sm-3 col-xs-12">Phone No. </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input id="phone_no" type="tel" name="phone_no" class="form-control col-md-7 col-xs-12" required="required" placeholder="Enter Phone Number">
+                          <input id="phone_no" type="tel" name="phone_no" class="form-control col-md-7 col-xs-12" value="<%= users.phone_no %>" required="required">
                         </div>
                       </div>
 
@@ -157,9 +158,10 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
                           Male:
-                          <input type="radio" class="flat" name="gender" id="genderM" value="Male" checked="" required="required" class="col-md-8 col-sm-6 col-xs-12" />
+                          <input type="radio" class="flat" name="gender" id="gender" value="Male" required="required" class="col-md-8 col-sm-6 col-xs-12" />
                           Female:
-                          <input type="radio" class="flat" name="gender" id="genderF" value="Female" class="col-md-8 col-sm-6 col-xs-12"/>
+                          <input type="radio" class="flat" name="gender" id="gender" value="Female" class="col-md-8 col-sm-6 col-xs-12"/>
+
                         </div>
                       </div>
 
@@ -171,7 +173,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="father_name">Father Name <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input id="father_name" class="form-control col-md-7 col-xs-12" name="father_name" placeholder="Enter Father Name" required="required" type="text">
+                          <input type="text" id="father_name" class="form-control col-md-7 col-xs-12" name="father_name" value="<%= users.father_name %>" required="required">
                         </div>
                       </div>
 
@@ -179,7 +181,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="f_nrc">NRC No.
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input id="f_nrc" class="form-control col-md-7 col-xs-12" name="f_nrc" required="required" placeholder="Enter Father NRC Number" type="NRC">
+                          <input type="NRC" id="f_nrc" class="form-control col-md-7 col-xs-12" name="f_nrc" value="<%= users.f_nrc %>" required="required">
                         </div>
                       </div>
 
@@ -187,7 +189,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="f_occupation">Occupation <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input type="text" id="f_occupation" name="f_occupation" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Father Occupation">
+                          <input type="text" id="f_occupation" name="f_occupation" value="<%= users.f_occupation %>" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
 
@@ -195,7 +197,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="f_religion">Religion <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input type="text" id="f_religion" name="f_religion" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Father Religion">
+                          <input type="text" id="f_religion" name="f_religion" class="form-control col-md-7 col-xs-12" value="<%= users.f_religion %>">
                         </div>
                       </div>
 
@@ -203,7 +205,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="f_nationality">Nationality <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input type="text" id="f_nationality" name="f_nationality" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Father Nationality">
+                          <input type="text" id="f_nationality" name="f_nationality" value="<%= users.f_nationality %>" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
 
@@ -211,7 +213,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="mother_name">Mother Name <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input id="mother_name" class="form-control col-md-7 col-xs-12" name="mother_name" placeholder="Enter Mother Name" required="required" type="text">
+                          <input id="mother_name" class="form-control col-md-7 col-xs-12" name="mother_name" value="<%= users.mother_name %>" required="required" type="text">
                         </div>
                       </div>
 
@@ -219,7 +221,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="m_nrc">NRC No.
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input id="m_nrc" class="form-control col-md-7 col-xs-12" name="m_nrc" required="required" placeholder="Enter Mother NRC Number" type="NRC">
+                          <input id="m_nrc" class="form-control col-md-7 col-xs-12" name="m_nrc" required="required" value="<%= users.m_nrc %>" type="NRC">
                         </div>
                       </div>
 
@@ -227,7 +229,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="m_occupation">Occupation</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input type="text" id="m_occupation" name="m_occupation" class="form-control col-md-7 col-xs-12" placeholder="Enter Mpther Occupation">
+                          <input type="text" id="m_occupation" name="m_occupation" value="<%= users.m_occupation %>" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
 
@@ -235,7 +237,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="m_religion">Religion <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input type="text" id="m_religion" name="m_religion" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Mother Religion">
+                          <input type="text" id="m_religion" name="m_religion" value="<%= users.m_religion %>" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
 
@@ -243,7 +245,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="m_nationality">Nationality <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input type="text" id="m_nationality" name="m_nationality" required="required" placeholder="Enter Mother Nationality" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="m_nationality" name="m_nationality" value="<%= users.m_nationality %>" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
 
@@ -255,7 +257,7 @@
                         <label for="high_school_success_year" class="control-label col-md-4 col-sm-3 col-xs-12">High School Success Year <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input type="date" name="high_school_success_year" id="high_school_success_year" required="required" placeholder="Enter High School Success Year" class="form-control col-md-7 col-xs-12">
+                          <input type="text" name="high_school_success_year" id="high_school_success_year" required="required" value="<%= users.high_school_success_year %>" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
 
@@ -263,7 +265,7 @@
                         <label for="high_school_roll_no" class="control-label col-md-4 col-sm-3 col-xs-12">High School Roll No. <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input type="text" name="high_school_roll_no" id="high_school_roll_no" required="required" placeholder="Enter High School Roll Number" class="form-control col-md-7 col-xs-12">
+                          <input type="text" name="high_school_roll_no" id="high_school_roll_no" required="required" value="<%= users.high_school_roll_no %>" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
 
@@ -272,8 +274,7 @@
                     <div class="ln_solid"></div>
                     <div class="form-group">
                       <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3" align="center">
-                        <button class="btn btn-primary" type="reset">Reset</button>
-                        <button type="submit" class="btn btn-success">Submit</button>
+                        <button type="submit" class="btn btn-success">Modify</button>
                       </div>
                     </div>
 
@@ -296,4 +297,10 @@
     <% include ../partial/script %>
     <!-- /script content -->
   </body>
+  <script type="text/javascript">
+    $('#s_year').val("<%= users.s_year %>").change();
+    console.log("<%=users.gender%>");
+    $('input:radio[name="gender"][value="<%=users.gender%>"]').attr('checked',true);
+
+      </script>
 </html>
