@@ -55,7 +55,7 @@
                     <h2>Registration New Student</h2>
                     <div class="clearfix"></div>
                   </div>
-                  <form action="" method="post" class="form-horizontal form-label-left" novalidate>
+                  <form action="/admin/users/new" method="post" class="form-horizontal form-label-left" novalidate>
 
                     <div class="col-md-6 col-sm-3 col-xs-12 profile_left">
 
@@ -68,34 +68,18 @@
                       </div>
 
                       <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="student_id">Student ID <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input id="student_id" class="form-control col-md-7 col-xs-12" name="student_id" placeholder="Enter Student Entry Number" required="required" type="text">
+                        </div>
+                      </div>
+
+                      <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="Enter Student Name" required="required" type="text">
-                        </div>
-                      </div>
-
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id">ID <span class="required">*</span>
-                        </label>
-                        <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input type="text" id="id" name="id" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Stduent ID">
-                        </div>
-                      </div>
-
-                      <div class="item form-group">
-                        <label for="" class="control-label col-md-3 col-sm-3 col-xs-12">Year <span class="required">*</span>
-                        </label>
-                        <div class="col-md-8 col-sm-6 col-xs-12">
-                          <select class="optional form-control col-md-7 col-xs-12" name="s_year" style="height: 35px" required="required">
-                            <option value=""><-- Select Year --></option>
-                            <option value="1F">First Year</option>
-                            <option value="2S">Second Year</option>
-                            <option value="3T">Third Year</option>
-                            <option value="4F">Forth Year</option>
-                            <option value="5F">Five Year</option>
-                            <option value="6S">Sixth Year</option>
-                          </select>
+                          <input id="name" class="form-control col-md-7 col-xs-12" name="name" placeholder="Enter Student Name" required="required" type="text">
                         </div>
                       </div>
 
@@ -103,7 +87,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nrc_no">NRC No. <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input type="NRC" id="nrc_no" name="nrc_no" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Student NRC No.">
+                          <input type="NRC" id="nrc_no" name="nrc_no" required="required" class="form-control col-md-7 col-xs-12" placeholder="14/PaTaNa(N)101010">
                         </div>
                       </div>
 
@@ -119,7 +103,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="religion">Religion <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input type="text" id="religion" name="religion" required="required" placeholder="Enter Student Religion" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="religion" name="religion" placeholder="Enter Student Religion" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
 
@@ -149,9 +133,9 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
                           Male:
-                          <input type="radio" class="flat" name="gender" id="genderM" value="M" checked="" required="required" class="col-md-8 col-sm-6 col-xs-12" />
+                          <input type="radio" class="flat" name="gender" id="gender" value="Male" checked="" required="required" class="col-md-8 col-sm-6 col-xs-12" />
                           Female:
-                          <input type="radio" class="flat" name="gender" id="genderF" value="F" class="col-md-8 col-sm-6 col-xs-12"/>
+                          <input type="radio" class="flat" name="gender" id="gender" value="Female" class="col-md-8 col-sm-6 col-xs-12"/>
                         </div>
                       </div>
 
@@ -187,7 +171,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="f_religion">Religion <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input type="text" id="f_religion" name="f_religion" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Father Religion">
+                          <input type="text" id="f_religion" name="f_religion" class="form-control col-md-7 col-xs-12" placeholder="Enter Father Religion">
                         </div>
                       </div>
 
@@ -227,7 +211,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="m_religion">Religion <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input type="text" id="m_religion" name="m_religion" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Mother Religion">
+                          <input type="text" id="m_religion" name="m_religion" class="form-control col-md-7 col-xs-12" placeholder="Enter Mother Religion">
                         </div>
                       </div>
 

@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var Student = require('../../models/Student');
+var Newstudent = require('../../models/Newstudent');
 
 /*GET student list page. */
 router.get('/list', function(req, res, next) {
@@ -9,6 +10,15 @@ router.get('/list', function(req, res, next) {
   Student.find(params, function(err, users) {
     if (err) next (err);
     res.render('student/list', {title: 'Stuent List', users: users });
+  });
+});
+
+/*GET New student list page. */
+router.get('/new_list', function(req, res, next) {
+  var params = [req.body.keyword || '',req.body.keyword || ''];
+  Newstudent.find(params, function(err, users) {
+    if (err) next (err);
+    res.render('student/new_list', {title: 'New Stuent List', users: users });
   });
 });
 
@@ -20,8 +30,8 @@ router.get('/new', function(req, res, next) {
 /*POST new student register. */
 router.post('/new', function(req, res, next) {
   var params = [
+    req.body.student_id,
     req.body.name,
-    req.body.s_year,
     req.body.nrc_no,
     req.body.photo,
     req.body.gender,
@@ -47,12 +57,84 @@ router.post('/new', function(req, res, next) {
     req.body.high_school_subject_mark,
     req.body.examiner_dep,
     req.body.health_rec,
-    req.body.police_rec
+    req.body.police_rec,
   ];
-  Student.addNew(params, function(err, newStu) {
+  Newstudent.addNew(params, function(err, result) {
     console.log('Data', params);
     if(err) next (err);
-    res.end('Success');
+    console.log('result', result);
+    req.flash('warn', 'Insert Success');
+    res.redirect('/admin/users/new_view/'+ result.insertId);
+  });
+});
+
+router.get('/new_view/:id', function(req, res, next) {
+  Newstudent.findByID(req.params.id, function(err, newStu) {
+    if(err) throw err;
+    if(newStu.length == 0 ) next (new Error('User data not found!!!'));
+    res.render('student/new_view', {title: 'New Student View', users: newStu[0]});
+  });
+});
+
+/* GET modify new student */
+router.get('/new_modify/:new_stuid', function(req, res, next) {
+  Newstudent.findByID(req.params.new_stuid, function(err, newStu) {
+    if(err) throw err;
+    if(newStu.length == 0) next (new Error('User data not found!!!'));
+    res.render('student/new_modify', {title: 'Modify New Student', users: newStu[0]});
+  });
+});
+
+router.post('/new_modify', function(req, res, next) {
+  var params = [
+    req.body.student_id,
+    req.body.name,
+    req.body.nrc_no,
+    req.body.photo,
+    req.body.gender,
+    req.body.birthday,
+    req.body.religion,
+    req.body.nationality,
+    req.body.address,
+    req.body.phone_no,
+    req.body.father_name,
+    req.body.f_nrc,
+    req.body.f_occupation,
+    req.body.f_religion,
+    req.body.f_nationality,
+    req.body.mother_name,
+    req.body.m_nrc,
+    req.body.m_occupation,
+    req.body.m_religion,
+    req.body.m_nationality,
+    req.body.high_school_name,
+    req.body.high_school_success_year,
+    req.body.high_school_roll_no,
+    req.body.high_school_total_mark,
+    req.body.high_school_subject_mark,
+    req.body.examiner_dep,
+    req.body.health_rec,
+    req.body.police_rec,
+    req.body.new_stuid
+  ];
+  Newstudent.findByID( req.body.new_stuid, function(err, users) {
+    if (err) throw err;
+    if(users.length == 0) next(new Error('User data not found!!!'));
+    Newstudent.update(params, function(uerr, uuser) {
+      if(uerr) throw uerr;
+      console.log();
+      req.flash('info', 'Success Updated');
+      res.redirect('/admin/users/new_view/'+ users[0].new_stuid);
+    });
+  });
+});
+
+/* GET remove */
+router.post('/new_remove', function(req, res, next){
+  Newstudent.remove(req.body.new_stuid, function(err, user) {
+    if (err) throw err;
+    req.flash('info', 'Successfully');
+    res.redirect('/admin/users/new_list');
   });
 });
 
@@ -64,7 +146,7 @@ router.get('/old', function(req, res, next) {
 /*POST old student register. */
 router.post('/old', function(req, res, next) {
   var params = [
-    req.body.entry_no,
+    req.body.student_id,
     req.body.name,
     req.body.s_year,
     req.body.roll_no,
@@ -122,7 +204,7 @@ router.get('/modify/:old_stuid', function(req, res, next) {
 
 router.post('/modify', function(req, res, next) {
   var params = [
-    req.body.entry_no,
+    req.body.student_id,
     req.body.name,
     req.body.s_year,
     req.body.roll_no,

@@ -1,10 +1,10 @@
 CREATE TABLE db_STUaffair.new_student (
   new_stuid INT NOT NULL AUTO_INCREMENT,
+  student_id VARCHAR(20) NOT NULL,
   name VARCHAR(45) NOT NULL,
   nrc_no VARCHAR(20) NOT NULL,
-  s_year VARCHAR(20) NOT NULL,
   photo VARCHAR(45) NOT NULL,
-  gender CHAR(1) NOT NULL,
+  gender CHAR(10) NOT NULL,
   birthday DATE NOT NULL,
   religion VARCHAR(45) NULL,
   nationality VARCHAR(45) NOT NULL,

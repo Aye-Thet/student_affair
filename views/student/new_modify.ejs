@@ -42,7 +42,7 @@
         <div class="right_col" role="main">
           <div class="">
             <div class="x_title">
-              <h5><b><a href="/">Home</a> > Student Registration > <a href="/admin/users/old"> Old Student </a> </a> </b></h5>
+              <h5><b><a href="/">Home</a> > Student Registration > <a href="/admin/users/new"> New Student </a> </a> </b></h5>
               <div class="clearfix"></div>
             </div>
 
@@ -52,11 +52,11 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Registration Old Student</h2>
+                    <h2>Registration New Student</h2>
                     <div class="clearfix"></div>
                   </div>
-                  <form id="frm" action="/admin/users/modify" method="post" class="form-horizontal form-label-left" novalidate>
-                    <input type="hidden" name="old_stuid" value="<%= users.old_stuid %>">
+                  <form id="frm" action="/admin/users/new_modify" method="post" class="form-horizontal form-label-left" novalidate>
+                    <input type="hidden" name="new_stuid" value="<%= users.new_stuid %>">
                     <div class="col-md-6 col-sm-3 col-xs-12 profile_left">
 
                       <div class="item form-group">
@@ -82,29 +82,6 @@
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
                           <input type="text" id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name" value="<%= users.name %>" required="required">
-                        </div>
-                      </div>
-
-                      <div class="item form-group">
-                        <label for="" class="control-label col-md-3 col-sm-3 col-xs-12">Year <span class="required">*</span>
-                        </label>
-                        <div class="col-md-8 col-sm-6 col-xs-12">
-                          <select class="optional form-control col-md-7 col-xs-12" name="s_year" style="height: 35px" required="required" id="s_year">
-                            <option value="1BE">First Year</option>
-                            <option value="2BE">Second Year</option>
-                            <option value="3BE">Third Year</option>
-                            <option value="4BE">Forth Year</option>
-                            <option value="5BE">Five Year</option>
-                            <option value="6BE">Sixth Year</option>
-                          </select>
-                        </div>
-                      </div>
-
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="roll_no">Roll Number <span class="required">*</span>
-                        </label>
-                        <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input type="text" id="roll_no" name="roll_no" class="form-control col-md-7 col-xs-12" value="<%= users.roll_no %>" required="required">
                         </div>
                       </div>
 
@@ -254,6 +231,14 @@
                     <div class="x_panel">
 
                       <div class="item form-group">
+                        <label for="high_school_name" class="control-label col-md-4 col-sm-3 col-xs-12">High School Name <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input type="text" name="high_school_name" id="high_school_name" required="required" value="<%= users.high_school_name %>" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+
+                      <div class="item form-group">
                         <label for="high_school_success_year" class="control-label col-md-4 col-sm-3 col-xs-12">High School Success Year <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
@@ -268,6 +253,89 @@
                           <input type="text" name="high_school_roll_no" id="high_school_roll_no" required="required" value="<%= users.high_school_roll_no %>" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
+
+                      <div class="item form-group">
+                        <label for="examiner_dep" class="control-label col-md-4 col-sm-3 col-xs-12">Department of examiner <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input type="text" name="examiner_dep" id="examiner_dep" required="required" value="<%= users.examiner_dep %>" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+
+                      <div class="item form-group">
+                        <label for="high_school_total_mark" class="control-label col-md-4 col-sm-3 col-xs-12">High School Total Mark <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input type="number" name="high_school_total_mark" id="high_school_total_mark" required="required" min="240" max="600" value="<%= users.high_school_total_mark %>" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+
+
+
+
+
+                      <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                        <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                          <li role="presentation" class="active"><a href="#subject_mark" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">High School Subject Mark</a>
+                          </li>
+                          <li role="presentation" class=""><a href="#health" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Health Recommendation</a>
+                          </li>
+                          <li role="presentation" class=""><a href="#police" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Police Recommendation</a>
+                          </li>
+                        </ul>
+                        <div id="myTabContent" class="tab-content">
+                          <div role="tabpanel" class="tab-pane fade active in" id="subject_mark" aria-labelledby="home-tab">
+
+                            <!-- start recent activity -->
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            <img src="/images/<%= users.high_school_subject_mark %>" alt=""><br>
+                            <input id="high_school_subject_mark" name="high_school_subject_mark" required="required" type="file" accept="image/x-png,image/gif,image/jpeg">
+                            <!-- end recent activity -->
+
+                          </div>
+                          <div role="tabpanel" class="tab-pane fade" id="health" aria-labelledby="profile-tab">
+
+                            <!-- start user projects -->
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            <img src="/images/<%= users.health_rec %>" alt=""><br>
+                            <input id="health_rec" name="health_rec" required="required" type="file" accept="image/x-png,image/gif,image/jpeg">
+                            <!-- end user projects -->
+
+                          </div>
+                          <div role="tabpanel" class="tab-pane fade" id="police" aria-labelledby="profile-tab">
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            <img src="/images/<%= users.police_rec %>" alt=""><br>
+                            <input id="police_rec" name="police_rec" required="required" type="file" accept="image/x-png,image/gif,image/jpeg">
+                          </div>
+                        </div>
+                      </div>
+
+
+
+
+
+
 
                     </div>
 
@@ -298,7 +366,6 @@
     <!-- /script content -->
   </body>
   <script type="text/javascript">
-    $('#s_year').val("<%= users.s_year %>").change();
     console.log("<%=users.gender%>");
     $('input:radio[name="gender"][value="<%=users.gender%>"]').attr('checked',true);
 

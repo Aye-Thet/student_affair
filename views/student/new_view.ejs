@@ -42,7 +42,7 @@
         <div class="right_col" role="main">
 
           <div class="x_title">
-            <h5><b><a href="../">Home</a> > Student Registration > <a href="/admin/users/old"> Old Student </a> > <a href="#">Detail view</a> </b></h5>
+            <h5><b><a href="../">Home</a> > Student Registration > <a href="/admin/users/new"> New Student </a> > <a href="#">Detail view</a> </b></h5>
             <div class="clearfix"></div>
           </div>
 
@@ -57,8 +57,8 @@
                     <h2>Student Details View</h2>
                     <div class="clearfix"></div>
                   </div>
-                  <form id="frm" action="/admin/users/remove" method="post">
-                  <input type="hidden" name="old_stuid" value="<%= users.old_stuid %>">
+                  <form id="frm" action="/admin/users/new_remove" method="post">
+                  <input type="hidden" name="new_stuid" value="<%= users.new_stuid %>">
                   <div class="x_content">
                     <div class="col-md-4 col-sm-3 col-xs-12 profile_left">
                       <div class="profile_img">
@@ -70,10 +70,8 @@
                       <h3><%= users.name %></h3>
 
                       <!-- start skills -->
-                      <h2> Entry Nmber: <%= users.student_id %> </h2>
-                      <h2> Year: <%= users.s_year %> </h2><br>
+                      <h2> Student ID: <%= users.student_id %> </h2>
                       <h2> NRC Number: <%= users.nrc_no %> </h2><br>
-                      <h2> Roll Number: <%= users.roll_no %> </h2><br>
                       <h2> Birthdate: <%= users.birthday %> </h2><br>
                       <h2> Gender: <%= users.gender %> </h2><br>
                       <h2> Religion: <%= users.religion %> </h2><br>
@@ -99,8 +97,60 @@
                           <h2>Mother Occupation: <%= users.m_occupation %> </h2><br>
                           <h2>Mother Religion: <%= users.m_religion %> </h2><br>
                           <h2>Mother Nationality: <%= users.m_nationality %> </h2><br>
+                          <h2>High School Name: <%= users.high_school_name %> </h2><br>
+                          <h2>High School Success Year: <%= users.high_school_success_year %> </h2><br>
                           <h2>High School Roll Number: <%= users.high_school_roll_no %>  </h2><br>
-                          <h2>High School Success Year: <%= users.high_school_success_year %> </h2><br><br><br>
+                          <h2>Department of examiner: <%= users.examiner_dep %> </h2><br>
+
+
+
+
+
+
+                          <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                            <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                              <li role="presentation" class="active"><a href="#subject_mark" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">High School Subject Mark</a>
+                              </li>
+                              <li role="presentation" class=""><a href="#health" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Health Recommendation</a>
+                              </li>
+                              <li role="presentation" class=""><a href="#police" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Police Recommendation</a>
+                              </li>
+                            </ul>
+                            <div id="myTabContent" class="tab-content">
+                              <div role="tabpanel" class="tab-pane fade active in" id="subject_mark" aria-labelledby="home-tab">
+
+                                <!-- start recent activity -->
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <img src="/images/<%= users.high_school_subject_mark %>" alt="" style="width: 300px; height: 400px"><br>
+                                <!-- end recent activity -->
+
+                              </div>
+                              <div role="tabpanel" class="tab-pane fade" id="health" aria-labelledby="profile-tab">
+
+                                <!-- start user projects -->
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <img src="/images/<%= users.health_rec %>" alt="" style="width: 300px; height: 400px"><br>
+                                <!-- end user projects -->
+
+                              </div>
+                              <div role="tabpanel" class="tab-pane fade" id="police" aria-labelledby="profile-tab">
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                <img src="/images/<%= users.police_rec %>" alt="" style="width: 300px; height: 400px"><br>
+                              </div>
+                            </div>
+                          </div>
+
+
+
 
                         </div>
                       </div>
@@ -111,8 +161,8 @@
                   <div class="form-group">
                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3" align="center">
                       <button class="btn btn-primary" type="submit"><a href="javascript:del()" style="color: white"></a> Delete</button>
-                      <button class="btn btn-primary" type="button"><a href="/admin/users/modify/<%=users.old_stuid%>" style="color: white"> Modify </a></button>
-                      <button type="button" class="btn btn-success"><a href="/admin/users/list"  style="color: white">Go to List</a></button>
+                      <button class="btn btn-primary" type="button"><a href="/admin/users/new_modify/<%=users.new_stuid%>" style="color: white"> Modify </a></button>
+                      <button type="button" class="btn btn-success"><a href="/admin/users/new_list"  style="color: white">Go to List</a></button>
                     </div>
                   </div>
 
