@@ -7,6 +7,12 @@
 
   </head>
 
+  <style media="screen">
+    #info{
+      padding-top: 185px;
+    }
+  </style>
+
   <body class="nav-md">
     <div class="container body">
       <div class="main_container">
@@ -58,6 +64,22 @@
                   <form id="frm" action="/admin/users/new_modify" method="post" class="form-horizontal form-label-left" novalidate>
                     <input type="hidden" name="new_stuid" value="<%= users.new_stuid %>">
                     <div class="col-md-6 col-sm-3 col-xs-12 profile_left">
+
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="student_id">Academic Year <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input type="text" id="academic" class="form-control col-md-7 col-xs-12" name="academic" readonly value="<%= users.academic %>">
+                        </div>
+                      </div>
+
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="student_id">Student ID <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input type="text" id="student_id" class="form-control col-md-7 col-xs-12" name="student_id" readonly value="<%= users.student_id %>">
+                        </div>
+                      </div>
 
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="photo">Photo <span class="required">*</span>
@@ -144,7 +166,7 @@
 
                     </div>
 
-                    <div class="col-md-6 col-sm-3 col-xs-12 profile_left">
+                    <div class="col-md-6 col-sm-3 col-xs-12 profile_left" id="info">
 
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="father_name">Father Name <span class="required">*</span>
@@ -295,7 +317,7 @@
                             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                            <img src="/images/<%= users.high_school_subject_mark %>" alt=""><br>
+                            <img src="/images/<%= users.high_school_subject_mark %>" alt="" style="width: 300px; height: 400px"><br>
                             <input id="high_school_subject_mark" name="high_school_subject_mark" required="required" type="file" accept="image/x-png,image/gif,image/jpeg">
                             <!-- end recent activity -->
 
@@ -311,7 +333,7 @@
                             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                            <img src="/images/<%= users.health_rec %>" alt=""><br>
+                            <img src="/images/<%= users.health_rec %>" alt="" style="width: 300px; height: 400px"><br>
                             <input id="health_rec" name="health_rec" required="required" type="file" accept="image/x-png,image/gif,image/jpeg">
                             <!-- end user projects -->
 
@@ -325,7 +347,7 @@
                             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                            <img src="/images/<%= users.police_rec %>" alt=""><br>
+                            <img src="/images/<%= users.police_rec %>" alt="" style="width: 300px; height: 400px"><br>
                             <input id="police_rec" name="police_rec" required="required" type="file" accept="image/x-png,image/gif,image/jpeg">
                           </div>
                         </div>

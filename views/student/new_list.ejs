@@ -8,7 +8,19 @@
   </head>
   <style media="screen">
     table{
-      border: 1px solid #ddd;
+      color: black;
+    }
+    #a1{
+      color: black;
+    }
+    h3, h2{
+      color: black;
+    }
+    th{
+      background-color: #e1efe6;
+    }
+    td{
+      background-color: #edfeff;
     }
   </style>
 
@@ -52,6 +64,7 @@
           </div>
 
           <div class="">
+            <form class="" action="/admin/users/list" method="post">
 
             <div class="clearfix"></div>
 
@@ -59,10 +72,12 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h3> New Student List </h3>
+                    <h2>New Student list</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <h2> <%= users.academic %> &nbsp Academic Year </h2>
+                    </ul>
                     <div class="clearfix"></div>
                   </div>
-                  <form class="" action="/admin/users/list" method="post">
 
 
 
@@ -77,7 +92,7 @@
                                   <th style="width: 5px">No</th>
                                   <th>Student ID</th>
                                   <th>Student Name</th>
-                                  <th>High School Total Mark</th>
+                                  <th>High School Mark</th>
                                   <th>Father Name</th>
                                   <th>Phone Number</th>
                                   <th>Address</th>
@@ -89,8 +104,8 @@
                                 <% for(var i = 0; i < users.length; i++) { %>
                                 <tr>
                                   <td><%= i+1 %></td>
-                                  <td><%= users[i].student_id %></td>
-                                  <td><a href="/admin/users/new_view/<%= users[i].new_stuid %>"><%= users[i].name %></a></td>
+                                  <td><a id="a1" href="/admin/users/new_view/<%= users[i].new_stuid %>"><%= users[i].student_id %></a></td>
+                                  <td><a id="a1" href="/admin/users/new_view/<%= users[i].new_stuid %>"><%= users[i].name %></a></td>
                                   <td><%= users[i].high_school_total_mark %></td>
                                   <td><%= users[i].father_name %></td>
                                   <td><%= users[i].phone_no %></td>
@@ -126,6 +141,8 @@
     </div>
 
     <% include ../partial/script %>
+    <!-- Custom Theme Scripts -->
+    <script src="/build/js/custom.min.js"></script>
 
   </body>
 </html>

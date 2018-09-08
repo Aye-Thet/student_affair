@@ -74,4 +74,10 @@ router.get('/logout', function(req, res, next){
   res.redirect('/');
 });
 
+/* test table */
+router.get('/tables_dynamic', function(req, res, next) {
+  res.render('tables_dynamic');
+});
+
+
 module.exports = router;

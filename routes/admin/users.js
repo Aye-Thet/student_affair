@@ -30,6 +30,7 @@ router.get('/new', function(req, res, next) {
 /*POST new student register. */
 router.post('/new', function(req, res, next) {
   var params = [
+    req.body.academic,
     req.body.student_id,
     req.body.name,
     req.body.nrc_no,
@@ -87,7 +88,8 @@ router.get('/new_modify/:new_stuid', function(req, res, next) {
 
 router.post('/new_modify', function(req, res, next) {
   var params = [
-    req.body.student_id,
+    req.body.academic,
+    req.body.new_stuid,
     req.body.name,
     req.body.nrc_no,
     req.body.photo,
@@ -146,6 +148,7 @@ router.get('/old', function(req, res, next) {
 /*POST old student register. */
 router.post('/old', function(req, res, next) {
   var params = [
+    req.body.academic,
     req.body.student_id,
     req.body.name,
     req.body.s_year,
@@ -170,7 +173,6 @@ router.post('/old', function(req, res, next) {
     req.body.m_nationality,
     req.body.high_school_success_year,
     req.body.high_school_roll_no,
-    req.body.updated
   ];
   Student.addOld(params, function(err, result) {
     console.log('Data', params);
@@ -204,6 +206,7 @@ router.get('/modify/:old_stuid', function(req, res, next) {
 
 router.post('/modify', function(req, res, next) {
   var params = [
+    req.body.academic,
     req.body.student_id,
     req.body.name,
     req.body.s_year,

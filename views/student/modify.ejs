@@ -6,6 +6,11 @@
     <title>Student Affair System | </title>
 
   </head>
+  <style media="screen">
+    #info{
+      padding-top: 185px;
+    }
+  </style>
 
   <body class="nav-md">
     <div class="container body">
@@ -66,14 +71,21 @@
                           <img src="/images/<%= users.photo %>" alt="Student Photo" onerror="this.src='/images/nouser.png'" width="150" height="150" >
                           <input id="photo" name="photo" type="file" accept="image/x-png,image/gif,image/jpeg">
                         </div>
+                      </div>
 
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="student_id">Academic Year <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input type="text" id="academic" class="form-control col-md-7 col-xs-12" name="academic" readonly value="<%= users.academic %>">
+                        </div>
                       </div>
 
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="student_id">Student ID <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input type="text" id="student_id" class="form-control col-md-7 col-xs-12" name="student_id" readonly value="<%= users.student_id %>" required="required">
+                          <input type="text" id="student_id" class="form-control col-md-7 col-xs-12" name="student_id" readonly value="<%= users.student_id %>">
                         </div>
                       </div>
 
@@ -167,7 +179,7 @@
 
                     </div>
 
-                    <div class="col-md-6 col-sm-3 col-xs-12 profile_left">
+                    <div class="col-md-6 col-sm-3 col-xs-12 profile_left" id="info">
 
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="father_name">Father Name <span class="required">*</span>

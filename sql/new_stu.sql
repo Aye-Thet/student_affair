@@ -1,6 +1,7 @@
 CREATE TABLE db_STUaffair.new_student (
+  academic VARCHAR(20) NOT NULL,
+  student_id INT(20) NOT NULL,
   new_stuid INT NOT NULL AUTO_INCREMENT,
-  student_id VARCHAR(20) NOT NULL,
   name VARCHAR(45) NOT NULL,
   nrc_no VARCHAR(20) NOT NULL,
   photo VARCHAR(45) NOT NULL,

@@ -6,6 +6,40 @@
     <title>Student Affair | </title>
 
   </head>
+  <style media="screen">
+  h3{
+    color: black;
+  }
+    #school{
+      background-color: powderblue;
+      margin-left: -10px;
+      padding-top: 17px;
+      padding-left: 20px;
+      color: black;
+      border-radius: 5px;
+    }
+    #family{
+      margin-top: 20px;
+      width: 500px;
+      background-color: white;
+      color: black;
+      border-radius: 5px;
+      padding-left: 20px;
+      padding-top: 20px;
+    }
+    #personal{
+      margin-top: 20px;
+      width: 500px;
+      background-color: white;
+      color: black;
+      border-radius: 5px;
+      padding-left: 20px;
+      padding-top: 20px;
+    }
+    h2{
+      color: black;
+    }
+  </style>
 
   <body class="nav-md">
     <div class="container body">
@@ -40,72 +74,99 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
+          <form id="frm" action="/admin/users/new_remove" method="post">
+          <input type="hidden" name="new_stuid" value="<%= users.new_stuid %>">
 
-          <div class="x_title">
-            <h5><b><a href="../">Home</a> > Student Registration > <a href="/admin/users/new"> New Student </a> > <a href="#">Detail view</a> </b></h5>
-            <div class="clearfix"></div>
-          </div>
+          <div class="x_panel">
+            <div id="mainbody">
 
-          <div class="">
 
-            <div class="clearfix"></div>
+              <div class="x_title">
+                <h2>Student Detail Veiw</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                  <h2> <%= users.academic %> &nbsp Academic Year </h2>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
 
-            <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Student Details View</h2>
-                    <div class="clearfix"></div>
-                  </div>
-                  <form id="frm" action="/admin/users/new_remove" method="post">
-                  <input type="hidden" name="new_stuid" value="<%= users.new_stuid %>">
                   <div class="x_content">
-                    <div class="col-md-4 col-sm-3 col-xs-12 profile_left">
-                      <div class="profile_img">
-                        <div>
-                          <!-- Current avatar -->
-                          <img src="/images/<%= users.photo %>" width="150" height="150" alt="Avatar" title="Student Photo">
+
+                        <div class="profile_img">
+                          <img src="/images/<%= users.photo %>" width="150px" height="150px" alt="Avatar" title="Student Photo">
                         </div>
-                      </div>
-                      <h3><%= users.name %></h3>
 
-                      <!-- start skills -->
-                      <h2> Student ID: <%= users.student_id %> </h2>
-                      <h2> NRC Number: <%= users.nrc_no %> </h2><br>
-                      <h2> Birthdate: <%= users.birthday %> </h2><br>
-                      <h2> Gender: <%= users.gender %> </h2><br>
-                      <h2> Religion: <%= users.religion %> </h2><br>
-                      <h2> Nationality: <%= users.nationality %> </h2><br>
-                      <h2> Address: <%= users.address %> </h2><br>
-                      <h2> Phone: <%= users.phone_no %> </h2>
+                            <div class="x_panel tile fixed_height_600" style="background-color:powderblue;" id="personal">
+                              <div class="x_title">
+                                <h2>Student Info</h2>
+                                <div class="clearfix"></div>
+                              </div>
 
-                      <!-- end of skills -->
 
-                    </div>
-                    <div class="col-md-8 col-sm-9 col-xs-12">
+                                <h2> Student ID: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.student_id %> </h2>
+                                <h2> Name: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.name %></h2>
+                                <h2> NRC Number: &nbsp <%= users.nrc_no %> </h2>
+                                <h2> Birthdate: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.birthday %> </h2>
+                                <h2> Gender: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.gender %> </h2>
+                                <h2> Religion: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.religion %> </h2>
+                                <h2> Nationality: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.nationality %> </h2><br><br>
 
-                      <div class="profile_title">
-                        <div class="col-md-12">
+                                <div class="x_title">
+                                  <h2>Other Info</h2>
+                                  <div class="clearfix"></div>
+                                </div>
 
-                          <h2>Father Name: <%= users.father_name %> </h2><br>
-                          <h2>Father NRC Number: <%= users.f_nrc %> </h2><br>
-                          <h2>Father Occupation: <%= users.f_occupation %> </h2><br>
-                          <h2>Father Religion: <%= users.f_religion %> </h2><br>
-                          <h2>Father Nationality: <%= users.f_nationality %> </h2><br>
-                          <h2>Mother Name: <%= users.mother_name %> </h2><br>
-                          <h2>Mother NRC Number: <%= users.m_nrc %> </h2><br>
-                          <h2>Mother Occupation: <%= users.m_occupation %> </h2><br>
-                          <h2>Mother Religion: <%= users.m_religion %> </h2><br>
-                          <h2>Mother Nationality: <%= users.m_nationality %> </h2><br>
-                          <h2>High School Name: <%= users.high_school_name %> </h2><br>
-                          <h2>High School Success Year: <%= users.high_school_success_year %> </h2><br>
-                          <h2>High School Roll Number: <%= users.high_school_roll_no %>  </h2><br>
-                          <h2>Department of examiner: <%= users.examiner_dep %> </h2><br>
+                                <h2> Address: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.address %> </h2>
+                                <h2> Phone: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.phone_no %> </h2><br><br><br>
+
+
+                              <div class="clearfix"></div>
+                            </div>
 
 
 
+                            <div class="x_panel tile fixed_height_600" style="background-color:powderblue;" id="family">
+                              <div class="x_title">
+                                <h2>Father</h2>
+                                <div class="clearfix"></div>
+                              </div>
 
 
+                              <h2> Name: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.father_name %> </h2>
+                              <h2> NRC Number: &nbsp <%= users.f_nrc %> </h2>
+                              <h2> Occupation: &nbsp&nbsp&nbsp&nbsp&nbsp <%= users.f_occupation %> </h2>
+                              <h2> Religion: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.f_religion %> </h2>
+                              <h2> Nationality: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.f_nationality %> </h2><br>
+
+                                <div class="x_title">
+                                  <h2>Mother</h2>
+                                  <div class="clearfix"></div>
+                                </div>
+
+                                <h2> Name: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.mother_name %> </h2>
+                                <h2> NRC Number: &nbsp <%= users.m_nrc %> </h2>
+                                <h2> Occupation: &nbsp&nbsp&nbsp&nbsp&nbsp <%= users.m_occupation %> </h2>
+                                <h2> Religion: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.m_religion %> </h2>
+                                <h2> Nationality: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.m_nationality %> </h2><br><br><p></p>
+
+
+                              <div class="clearfix"></div>
+                            </div>
+
+
+
+                    <div class="col-md-12 col-sm-6 col-xs-12">
+                      <div class="x_panel tile fixed_height_300" id="school">
+                        <div class="x_title">
+                          <h2>High School Info</h2>
+                          <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+
+                          <h2>School Name: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.high_school_name %></h2>
+                          <h2>High School Success Year: &nbsp&nbsp&nbsp&nbsp&nbsp <%= users.high_school_success_year %> </h2>
+                          <h2>High School Roll Number: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.high_school_roll_no %>  </h2>
+                          <h2>High School Total Mark: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.high_school_total_mark %></h2>
+                          <h2>Deptment of Examiner: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.examiner_dep %></h2><br>
 
                           <div class="" role="tabpanel" data-example-id="togglable-tabs">
                             <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
@@ -119,24 +180,34 @@
                             <div id="myTabContent" class="tab-content">
                               <div role="tabpanel" class="tab-pane fade active in" id="subject_mark" aria-labelledby="home-tab">
 
-                                <!-- start recent activity -->
+
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                                 <img src="/images/<%= users.high_school_subject_mark %>" alt="" style="width: 300px; height: 400px"><br>
-                                <!-- end recent activity -->
+
+
 
                               </div>
                               <div role="tabpanel" class="tab-pane fade" id="health" aria-labelledby="profile-tab">
 
-                                <!-- start user projects -->
+
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                                 <img src="/images/<%= users.health_rec %>" alt="" style="width: 300px; height: 400px"><br>
-                                <!-- end user projects -->
+
+
 
                               </div>
                               <div role="tabpanel" class="tab-pane fade" id="police" aria-labelledby="profile-tab">
@@ -144,39 +215,37 @@
                                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                                 <img src="/images/<%= users.police_rec %>" alt="" style="width: 300px; height: 400px"><br>
+
                               </div>
                             </div>
                           </div>
 
-
-
-
                         </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div class="ln_solid"></div>
+                  </div>
                   <div class="form-group">
                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3" align="center">
-                      <button class="btn btn-primary" type="submit"><a href="javascript:del()" style="color: white"></a> Delete</button>
+                      <button class="btn btn-primary" type="submit"><a href="javascript:del()" style="color: white"> Delete</a></button>
                       <button class="btn btn-primary" type="button"><a href="/admin/users/new_modify/<%=users.new_stuid%>" style="color: white"> Modify </a></button>
                       <button type="button" class="btn btn-success"><a href="/admin/users/new_list"  style="color: white">Go to List</a></button>
                     </div>
                   </div>
 
                   </form>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
         <!-- /page content -->
 
         <!-- footer content -->
-        <% include ../partial/footer %>
         <!-- /footer content -->
+        </div>
+        </div>
       </div>
     </div>
 
