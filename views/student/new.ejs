@@ -7,6 +7,20 @@
 
   </head>
 
+  <style media="screen">
+    #personal{
+      padding-top: 20px;
+    }
+    #family{
+      padding-top: 20px;
+    }
+    #school{
+      background-color: powderblue;
+      padding-top: 20px;
+      border-radius: 10px;
+    }
+  </style>
+
   <body class="nav-md">
     <div class="container body">
       <div class="main_container">
@@ -50,14 +64,14 @@
 
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
+                <div class="x_panel" style="background-color: powderblue; color: black;">
                   <div class="x_title">
                     <h2>Registration New Student</h2>
                     <div class="clearfix"></div>
                   </div>
                   <form action="/admin/users/new" method="post" class="form-horizontal form-label-left" novalidate>
 
-                    <div class="col-md-6 col-sm-3 col-xs-12 profile_left">
+                    <div class="col-md-6 col-sm-3 col-xs-12 profile_left" id="personal">
 
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="academic">Academic Year <span class="required">*</span>
@@ -149,7 +163,7 @@
 
                     </div>
 
-                    <div class="col-md-6 col-sm-3 col-xs-12 profile_left">
+                    <div class="col-md-6 col-sm-3 col-xs-12 profile_left" id="family">
 
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="father_name">Father Name <span class="required">*</span>
@@ -233,7 +247,23 @@
 
                     </div>
 
-                    <div class="x_panel">
+                    <div class="x_panel" id="school">
+
+                      <!-- <div class="item form-group">
+                        <label for="major_choice" class="control-label col-md-4 col-sm-3 col-xs-12">Major Choice <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <select class="form-control col-md-7 col-xs-12" name="major_choice"  multiple>
+                            <option value="C">Civil</option>
+                            <option value="EC">Electronic Communication</option>
+                            <option value="EP">Electrical Power</option>
+                            <option value="MP">Mechanical Power</option>
+                            <option value="IT">Information Technology</option>
+                            <option value="MC">Mechatronic</option>
+                          </select>
+                        </div>
+                      </div> -->
+
 
                       <div class="item form-group">
                         <label for="high_school_name" class="control-label col-md-4 col-sm-3 col-xs-12">High School Name <span class="required">*</span>
@@ -299,25 +329,10 @@
                         </div>
                       </div>
 
-                      <!-- <div class="item form-group">
-                        <label for="major_choice" class="control-label col-md-6 col-sm-3 col-xs-12">Major Choice <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="" name="major_choice" multiple>
-                            <option value="">Major Choice</option>
-                            <option value="C">Civil</option>
-                            <option value="EC">Electronic Communication</option>
-                            <option value="EP">Electrical Power</option>
-                            <option value="MP">Mechanical Power</option>
-                            <option value="IT">Information Technology</option>
-                            <option value="MC">Mechatronic</option>
-                          </select>
-                        </div>
-                      </div> -->
+
 
                     </div>
 
-                    <div class="ln_solid"></div>
                     <div class="form-group">
                       <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3" align="center">
                         <button class="btn btn-primary" type="reset">Reset</button>
@@ -344,4 +359,5 @@
     <% include ../partial/script %>
     <!-- /script content -->
   </body>
+
 </html>

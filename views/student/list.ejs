@@ -17,10 +17,10 @@
       color: black;
     }
     th{
-      background-color: #e1efe6;
+      background-color: darkgray;
     }
     td{
-      background-color: #edfeff;
+      background-color: powderblue;
     }
   </style>
 
@@ -100,7 +100,7 @@
 
                               <tbody>
                                 <% for(var i = 0; i < users.length; i++) { %>
-                                <tr onclick="go()">
+                                <tr onclick="go();">
                                   <td><%= i+1 %></td>
                                   <td><a id="a1" href="/admin/users/view/<%= users[i].old_stuid %>"> <%= users[i].student_id %></a></td>
                                   <td><a id="a1" href="/admin/users/view/<%= users[i].old_stuid %>"><%= users[i].name %></a></td>

@@ -10,6 +10,10 @@
     #info{
       padding-top: 185px;
     }
+    #school{
+      background-color: powderblue;
+      border-radius: 10px;
+    }
   </style>
 
   <body class="nav-md">
@@ -55,7 +59,7 @@
 
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
+                <div class="x_panel" style="background-color: powderblue; color: black;">
                   <div class="x_title">
                     <h2>Registration Old Student</h2>
                     <div class="clearfix"></div>
@@ -65,16 +69,16 @@
                     <div class="col-md-6 col-sm-3 col-xs-12 profile_left">
 
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="photo">Photo <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="photo">
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
                           <img src="/images/<%= users.photo %>" alt="Student Photo" onerror="this.src='/images/nouser.png'" width="150" height="150" >
-                          <input id="photo" name="photo" type="file" accept="image/x-png,image/gif,image/jpeg">
+                          <input id="photo" name="photo" type="file" accept="image/x-png,image/gif,image/jpeg" required="required">
                         </div>
                       </div>
 
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="student_id">Academic Year <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="student_id">Academic Year
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
                           <input type="text" id="academic" class="form-control col-md-7 col-xs-12" name="academic" readonly value="<%= users.academic %>">
@@ -82,7 +86,7 @@
                       </div>
 
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="student_id">Student ID <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="student_id">Student ID
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
                           <input type="text" id="student_id" class="form-control col-md-7 col-xs-12" name="student_id" readonly value="<%= users.student_id %>">
@@ -263,7 +267,7 @@
 
                     </div>
 
-                    <div class="x_panel">
+                    <div class="x_panel" id="school">
 
                       <div class="item form-group">
                         <label for="high_school_success_year" class="control-label col-md-4 col-sm-3 col-xs-12">High School Success Year <span class="required">*</span>
