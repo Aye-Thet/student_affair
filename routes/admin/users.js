@@ -5,11 +5,17 @@ var Student = require('../../models/Student');
 var Newstudent = require('../../models/Newstudent');
 
 /*GET student list page. */
-router.get('/list', function(req, res, next) {
-  var params = [req.body.keyword || '',req.body.keyword || ''];
-  Student.find(params, function(err, users) {
+router.all('/list', function(req, res, next) {
+  var params = [req.body.keyword || '',req.body.keyword || '',req.body.keyword || ''];
+  var orderby = [req.body.sortField||'roll_no', req.body.sortOrder||'DES'];
+  Student.find(params, orderby, function(err, users) {
     if (err) next (err);
-    res.render('student/list', {title: 'Stuent List', users: users });
+    res.render('student/list',
+    {title: 'Stuent List',
+     users: users,
+     search:{keyword: req.body.keyword},
+     sort: {field:orderby[0], order:orderby[1]}
+   });
   });
 });
 

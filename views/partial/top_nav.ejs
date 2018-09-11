@@ -1,3 +1,9 @@
+<style media="screen">
+button {
+  background: none;
+}
+</style>
+
 <div class="top_nav">
   <div class="nav_menu">
     <nav>
@@ -20,7 +26,8 @@
         <div class="x_content">
 
           <div class="btn-group">
-            <button class="btn btn-success btn-lg" type="button"><a href="/" style="color: white"> &nbsp Home &nbsp </a></button>
+
+            <button class="btn btn-success btn-lg" type="button"><a href="/" id="btn" style="color: white;"> &nbsp Home &nbsp </a></button>
           </div>
 
           <div class="btn-group">
@@ -79,6 +86,12 @@
 
         </div>
       </div>
-
+      <script type="text/javascript">
+      $( document ).ready(function() {
+      $( ".js-click" ).click(function() {
+        $( ".js-click" ).css('background', 'green');
+      });
+      });
+      </script>
   </div>
 </div>

@@ -23,7 +23,7 @@ var Student = {
   find: function(params, callback){
     var sql = "SELECT old_stuid, academic, student_id, name, s_year, roll_no, nrc_no, photo, gender, birthday, religion, nationality, address, phone_no, father_name, f_nrc, f_occupation, f_religion, f_nationality, mother_name, m_nrc, m_occupation, m_religion, m_nationality, high_school_success_year, high_school_roll_no, updated, DATE_FORMAT(birthday, '%d-%m-%Y')AS birthday, DATE_FORMAT(high_school_success_year, '%d-%m-%Y')AS high_school_success_year FROM old_student";
     if(params[0] != '')
-    sql += " WHERE name LIKE concat('%', ?, '%')";
+    sql += " WHERE name LIKE concat('%', ?, '%') OR student_id LIKE concat('%',?,'%') OR roll_no LIKE concat('%',?,'%')";
     return db.query(sql, params, callback);
   },
   compare: function(cleartext, encrypted){
