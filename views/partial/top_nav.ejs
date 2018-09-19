@@ -1,7 +1,15 @@
 <style media="screen">
-button {
-  background: none;
-}
+  #btn-nav{
+    width: 150px;
+    height: 45px;
+    border-radius: 5px;
+    background-color: #0BCAB9;
+    font-size: 20px;
+  }
+  #btn-nav:hover {
+    /* background-color: magenta; */
+  }
+
 </style>
 
 <div class="top_nav">
@@ -18,7 +26,7 @@ button {
           <a href="/login">Login</a>
         </li>
 
-        <h1 style="color: black">Student Affair System</h1>
+        <h1 style="color: black"> <b>Student Affair System</b></h1>
 
       </ul>
       <div class="x_panel">
@@ -26,13 +34,11 @@ button {
         <div class="x_content">
 
           <div class="btn-group">
-
-            <button class="btn btn-success btn-lg" type="button"><a href="/" id="btn" style="color: white;"> &nbsp Home &nbsp </a></button>
+            <button type="button" id="btn-nav"><a href="/">Home</a></button>
           </div>
 
           <div class="btn-group">
-          <button data-toggle="dropdown" class="btn btn-success btn-lg" class="btn btn-default dropdown-toggle" type="button" aria-expanded="false"> Registration <span class="caret"></span>
-          </button>
+          <button data-toggle="dropdown" type="button" id="btn-nav">Registration</button>
           <ul role="menu" class="dropdown-menu">
             <li><a href="/admin/users/new">New Student</a></li>
             <li><a href="/admin/users/old">Old Student</a></li>
@@ -40,8 +46,7 @@ button {
           </div>
 
           <div class="btn-group">
-          <button data-toggle="dropdown" class="btn btn-success btn-lg" class="btn btn-default dropdown-toggle" type="button" aria-expanded="false"> Departments <span class="caret"></span>
-          </button>
+          <button data-toggle="dropdown" type="button" id="btn-nav">Departments</button>
           <ul role="menu" class="dropdown-menu">
             <li><a href="/admin/users/C">Civil</a></li>
             <li><a href="/admin/users/EC">Electronic Communication</a></li>
@@ -54,8 +59,7 @@ button {
           </div>
 
           <div class="btn-group">
-          <button data-toggle="dropdown" class="btn btn-success btn-lg" class="btn btn-default dropdown-toggle" type="button" aria-expanded="false"> Student Attendance <span class="caret"></span>
-          </button>
+          <button data-toggle="dropdown" type="button" id="btn-nav">Attendance</button>
           <ul role="menu" class="dropdown-menu">
             <li><a href="/admin/users/add_attendance">Add Student Attendance</a></li>
             <li><a href="#">View Student Attendance</a></li>
@@ -63,35 +67,27 @@ button {
           </div>
 
           <div class="btn-group">
-          <button data-toggle="dropdown" class="btn btn-success btn-lg" class="btn btn-default dropdown-toggle" type="button" aria-expanded="false"> Student Mark <span class="caret"></span>
-          </button>
+          <button data-toggle="dropdown" type="button" id="btn-nav">Student Mark</button>
           <ul role="menu" class="dropdown-menu">
-            <!-- <li><a href="#">Add Student Attendance</a></li>
-            <li><a href="#">View Student Attendance</a></li> -->
+            <li><a href="#">Add Student Mark</a></li>
+            <li><a href="#">View Student Mark</a></li>
           </ul>
           </div>
 
           <div class="btn-group">
-          <button data-toggle="dropdown" class="btn btn-success btn-lg" class="btn btn-default dropdown-toggle" type="button" aria-expanded="false"> Grading <span class="caret"></span>
-          </button>
+          <button data-toggle="dropdown" type="button" id="btn-nav">Grading</button>
           <ul role="menu" class="dropdown-menu">
-            <!-- <li><a href="#">Add Student Attendance</a></li>
-            <li><a href="#">View Student Attendance</a></li> -->
+            <li><a href="#">Add Grading</a></li>
+            <li><a href="#">View Grading</a></li>
           </ul>
           </div>
 
           <div class="btn-group">
-            <button class="btn btn-success btn-lg" type="button"><a href="/logout" style="color: white"> &nbsp Logout &nbsp </a></button>
+            <button data-toggle="dropdown" type="button" id="btn-nav"><a href="/logout">Lockout</a></button>
           </div>
 
         </div>
       </div>
-      <script type="text/javascript">
-      $( document ).ready(function() {
-      $( ".js-click" ).click(function() {
-        $( ".js-click" ).css('background', 'green');
-      });
-      });
-      </script>
+
   </div>
 </div>

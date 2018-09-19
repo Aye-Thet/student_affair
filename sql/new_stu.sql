@@ -21,6 +21,7 @@ CREATE TABLE db_STUaffair.new_student (
   m_occupation VARCHAR(45) NULL,
   m_religion VARCHAR(45) NULL,
   m_nationality VARCHAR(45) NOT NULL,
+  major_choice VARCHAR(128) NOT NULL,
   high_school_name VARCHAR(45) NOT NULL,
   high_school_success_year DATE NOT NULL,
   high_school_roll_no VARCHAR(10) NOT NULL,

@@ -6,16 +6,10 @@ var Newstudent = require('../../models/Newstudent');
 
 /*GET student list page. */
 router.all('/list', function(req, res, next) {
-  var params = [req.body.keyword || '',req.body.keyword || '',req.body.keyword || ''];
-  var orderby = [req.body.sortField||'roll_no', req.body.sortOrder||'DES'];
-  Student.find(params, orderby, function(err, users) {
+  var params = [req.body.keyword || '',req.body.keyword || ''];
+  Student.find(params, function(err, users) {
     if (err) next (err);
-    res.render('student/list',
-    {title: 'Stuent List',
-     users: users,
-     search:{keyword: req.body.keyword},
-     sort: {field:orderby[0], order:orderby[1]}
-   });
+    res.render('student/list', {title: 'Stuent List', users: users});
   });
 });
 
@@ -61,6 +55,7 @@ router.post('/new', function(req, res, next) {
     req.body.high_school_success_year,
     req.body.high_school_roll_no,
     req.body.high_school_total_mark,
+    req.body.mat_cer,
     req.body.high_school_subject_mark,
     req.body.examiner_dep,
     req.body.health_rec,
@@ -120,6 +115,7 @@ router.post('/new_modify', function(req, res, next) {
     req.body.high_school_roll_no,
     req.body.high_school_total_mark,
     req.body.high_school_subject_mark,
+    req.body.mat_cer,
     req.body.examiner_dep,
     req.body.health_rec,
     req.body.police_rec,
@@ -157,6 +153,7 @@ router.post('/old', function(req, res, next) {
     req.body.academic,
     req.body.student_id,
     req.body.name,
+    req.body.major,
     req.body.s_year,
     req.body.roll_no,
     req.body.nrc_no,
@@ -215,6 +212,7 @@ router.post('/modify', function(req, res, next) {
     req.body.academic,
     req.body.student_id,
     req.body.name,
+    req.body.major,
     req.body.s_year,
     req.body.roll_no,
     req.body.nrc_no,

@@ -3,6 +3,7 @@ CREATE TABLE db_STUaffair.old_student (
   student_id INT(20) NOT NULL,
   old_stuid INT NOT NULL AUTO_INCREMENT,
   name VARCHAR(45) NOT NULL,
+  major VARCHAR(45) NOT NULL,
   roll_no VARCHAR(45) NOT NULL,
   nrc_no VARCHAR(20) NOT NULL,
   s_year VARCHAR(20) NOT NULL,

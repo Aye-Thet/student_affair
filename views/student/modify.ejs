@@ -50,10 +50,7 @@
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
-            <div class="x_title">
-              <h5><b><a href="/">Home</a> > Student Registration > <a href="/admin/users/old"> Old Student </a> </a> </b></h5>
-              <div class="clearfix"></div>
-            </div>
+
 
             <div class="clearfix"></div>
 
@@ -112,6 +109,21 @@
                             <option value="4BE">Forth Year</option>
                             <option value="5BE">Five Year</option>
                             <option value="6BE">Sixth Year</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="">Major <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <select class="optional form-control col-md-7 col-xs-12" name="major" style="height: 35px" required="required" id="major">
+                            <option value="Civil">Civil</option>
+                            <option value="EC">EC</option>
+                            <option value="EP">EP</option>
+                            <option value="IT">IT</option>
+                            <option value="MC">MC</option>
+                            <option value="MP">MP</option>
                           </select>
                         </div>
                       </div>
@@ -315,6 +327,8 @@
   </body>
   <script type="text/javascript">
     $('#s_year').val("<%= users.s_year %>").change();
+    console.log("<%= users.major %>");
+    $('#major').val("<%= users.major %>").change();
     console.log("<%=users.gender%>");
     $('input:radio[name="gender"][value="<%=users.gender%>"]').attr('checked',true);
 

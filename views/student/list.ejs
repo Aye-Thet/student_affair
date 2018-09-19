@@ -13,12 +13,11 @@
     table{
       color: black;
     }
-    #a1{
+    #a1, h2{
       color: black;
     }
     th{
       background-color: darkgray;
-      cursor: pointer;
     }
     td{
       background-color: powderblue;
@@ -58,70 +57,58 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
-
-          <div class="x_title">
-            <h5><b><a href="../">Home</a> > Student Registration > <a href="/admin/users/old"> Old Student </a> > <a href="/admin/users/list">List view</a> </b></h5>
-            <div class="clearfix"></div>
-          </div>
+          <form class="" action="/admin/users/list" method="post">
 
           <div class="">
 
             <div class="clearfix"></div>
 
             <div class="row">
-              <form class="" action="/admin/users/list" method="post">
-                <input type="hidden" name="sortField" id="sortField" value="<%=sort.field%>">
-                <input type="hidden" name="sortOrder" id="sortOrder" value="<%=sort.order%>">
+
+
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2 style="color: black;">Student Detail Veiw</h2>
-
+                    <h2><b>Student List Veiw</b></h2>
                     <div class="clearfix"></div>
                   </div>
-
-                    <input type="search" id="search" name="keyword" value="<%= search.keyword || '' %>" style="margin-left: 16px;" placeholder="Enter to search...">
-                    <input type="submit" name="" value="Search" style="color: black;">
-
-
-
-
 
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_content">
                           <div class="table-responsive">
-                            <table class="table table-striped table-bordered">
+                            <table class="table table-striped table-bordered" id="datatable">
                               <thead>
                                 <tr>
                                   <th style="width: 5px">No</th>
-                                  <th data-sort="student_id">Student ID</th>
-                                  <th data-sort="name">Student Name</th>
-                                  <th data-sort="roll_no">Roll Number</th>
+                                  <th>Student ID</th>
+                                  <th>Student Name</th>
+                                  <th>Major</th>
+                                  <th>Roll Number</th>
                                   <th>Father Name</th>
-                                  <th data-sort="phone_no">Phone Number</th>
+                                  <th>Phone Number</th>
                                   <th>Address</th>
+                                  <th>Academic</th>
                                 </tr>
                               </thead>
 
                               <tbody>
-                                <% if( users.length == 0 ) { %>
-                                  <td colspan="7"> Data Not Found!</td>
-                                <% } %>
                                 <% for(var i = 0; i < users.length; i++) { %>
-                                <tr onclick="go();">
+                                <tr>
                                   <td><%= i+1 %></td>
                                   <td><a id="a1" href="/admin/users/view/<%= users[i].old_stuid %>"> <%= users[i].student_id %></a></td>
                                   <td><a id="a1" href="/admin/users/view/<%= users[i].old_stuid %>"><%= users[i].name %></a></td>
+                                  <td><%= users[i].major %></td>
                                   <td><%= users[i].roll_no %></td>
                                   <td><%= users[i].father_name %></td>
                                   <td><%= users[i].phone_no %></td>
                                   <td><%= users[i].address %></td>
+                                  <td><%= users[i].academic %></td>
                                 </tr>
                                 <% } %>
                               </tbody>
                             </table>
                           </div>
-
+                          
                         </div>
                     </div>
 
@@ -142,26 +129,5 @@
 
     <% include ../partial/script %>
 
-    <!-- Custom Theme Scripts -->
-    <!-- <script src="/build/js/custom.min.js"></script> -->
-
   </body>
-  <script type="text/javascript">
-    <% function go(){ %>
-      location.href = "/admin/users/view/<%= users[i].old_stuid %>"
-    <% } %>
-    $(function() {
-      $('th').click(function () {
-        if(!$(this).data('sort')) return flase;
-        if($('#sortField').val() == $(this).data('sort') ){
-           $('#sortOrder').val( ($('#sortOrder').val() == 'ASC') ? 'DESC':'ASC');
-        }else{
-          $('#sortOrder').val('ASC');
-        }
-        $('#sortField').val($(this).data('sort'));
-        $('#frm').submit();
-      })
-      $('th[data-sort="<%=sort.field%>"]').append(' <%= (sort.order == 'ASC')? '\u25B2': '\u25BC' %> ');
-    });
-  </script>
 </html>

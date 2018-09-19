@@ -51,10 +51,7 @@
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
-            <div class="x_title">
-              <h5><b><a href="/">Home</a> > Student Registration > <a href="/admin/users/new"> New Student </a> </a> </b></h5>
-              <div class="clearfix"></div>
-            </div>
+
 
             <div class="clearfix"></div>
 
@@ -295,7 +292,9 @@
 
                       <div class="" role="tabpanel" data-example-id="togglable-tabs">
                         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-                          <li role="presentation" class="active"><a href="#subject_mark" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">High School Subject Mark</a>
+                          <li role="presentation" class="active"><a href="#mat_cer" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Matriculation Certificate</a>
+                          </li>
+                          <li role="presentation" class=""><a href="#subject_mark" id="home-tab2" role="tab" data-toggle="tab" aria-expanded="false">High School Subject Mark</a>
                           </li>
                           <li role="presentation" class=""><a href="#health" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Health Recommendation</a>
                           </li>
@@ -303,7 +302,23 @@
                           </li>
                         </ul>
                         <div id="myTabContent" class="tab-content">
-                          <div role="tabpanel" class="tab-pane fade active in" id="subject_mark" aria-labelledby="home-tab">
+                          <div role="tabpanel" class="tab-pane fade active in" id="mat_cer" aria-labelledby="home-tab">
+
+                            <!-- start recent activity -->
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            <img src="/images/<%= users.mat_cer %>" alt="" style="width: 300px; height: 400px"><br>
+                            <input id="mat_cer" name="mat_cer" required="required" type="file" accept="image/x-png,image/gif,image/jpeg">
+                            <!-- end recent activity -->
+
+                          </div>
+                          <div role="tabpanel" class="tab-pane fade" id="subject_mark" aria-labelledby="home-tab2">
 
                             <!-- start recent activity -->
                             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp

@@ -55,10 +55,7 @@
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
-            <div class="x_title">
-              <h5><b><a href="/">Home</a> > Student Registration > <a href="/admin/users/new"> New Student </a> </a> </b></h5>
-              <div class="clearfix"></div>
-            </div>
+
 
             <div class="clearfix"></div>
 
@@ -77,7 +74,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="academic">Academic Year <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input id="academic" class="form-control col-md-7 col-xs-12" name="academic" placeholder="Enter Academic Year" required="required" type="text">
+                          <input id="academic" class="form-control col-md-7 col-xs-12" name="academic" placeholder="Enter Academic Year" required="required" type="Year">
                         </div>
                       </div>
 
@@ -177,7 +174,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="f_nrc">NRC No.
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input id="f_nrc" class="form-control col-md-7 col-xs-12" name="f_nrc" required="required" placeholder="Enter Father NRC Number" type="NRC">
+                          <input id="f_nrc" class="form-control col-md-7 col-xs-12" name="f_nrc" required="required" placeholder="14/PaTaNa(N)101010" type="NRC">
                         </div>
                       </div>
 
@@ -185,7 +182,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="f_occupation">Occupation <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input type="text" id="f_occupation" name="f_occupation" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Father Occupation">
+                          <input type="text" id="f_occupation" name="f_occupation" class="form-control col-md-7 col-xs-12" placeholder="Enter Father Occupation">
                         </div>
                       </div>
 
@@ -217,7 +214,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="m_nrc">NRC No.
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input id="m_nrc" class="form-control col-md-7 col-xs-12" name="m_nrc" required="required" placeholder="Enter Mother NRC Number" type="NRC">
+                          <input id="m_nrc" class="form-control col-md-7 col-xs-12" name="m_nrc" required="required" placeholder="14/PaTaNa(N)101010" type="NRC">
                         </div>
                       </div>
 
@@ -225,7 +222,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="m_occupation">Occupation</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input type="text" id="m_occupation" name="m_occupation" class="form-control col-md-7 col-xs-12" placeholder="Enter Mpther Occupation">
+                          <input type="text" id="m_occupation" name="m_occupation" class="form-control col-md-7 col-xs-12" placeholder="Enter Mother Occupation">
                         </div>
                       </div>
 
@@ -301,7 +298,16 @@
                         <label for="high_school_total_mark" class="control-label col-md-4 col-sm-3 col-xs-12">High School Total Mark <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input type="number" name="high_school_total_mark" id="high_school_total_mark" required="required" placeholder="Enter High School Total Mark" min="240" max="600" class="form-control col-md-7 col-xs-12">
+                          <input type="number" name="high_school_total_mark" id="high_school_total_mark" required="required" placeholder="Enter High School Total Mark" min="400" max="600" class="form-control col-md-7 col-xs-12">
+                          <b style="color: red;">Enter between from 400 to 600!</b>
+                        </div>
+                      </div>
+
+                      <div class="item form-group">
+                        <label for="mat_cer" class="control-label col-md-4 col-sm-3 col-xs-12">Matriculation Certificate <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input type="file" name="mat_cer" id="mat_cer" required="required">
                         </div>
                       </div>
 
@@ -336,7 +342,7 @@
                     <div class="form-group">
                       <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3" align="center">
                         <button class="btn btn-primary" type="reset">Reset</button>
-                        <button type="submit" class="btn btn-success">Submit</button>
+                        <button type="submit" class="btn btn-success">Add</button>
                       </div>
                     </div>
 

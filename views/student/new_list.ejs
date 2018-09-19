@@ -58,10 +58,7 @@
         <!-- page content -->
         <div class="right_col" role="main">
 
-          <div class="x_title">
-            <h5><b><a href="../">Home</a> > Student Registration > <a href="/admin/users/new"> New Student </a> > <a href="/admin/users/list2">List view</a> </b></h5>
-            <div class="clearfix"></div>
-          </div>
+
 
           <div class="">
             <form class="" action="/admin/users/list" method="post">
@@ -73,15 +70,8 @@
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>New Student list</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <h2> <%= users.academic %> &nbsp Academic Year </h2>
-                    </ul>
                     <div class="clearfix"></div>
                   </div>
-
-
-
-
 
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_content">
@@ -96,7 +86,7 @@
                                   <th>Father Name</th>
                                   <th>Phone Number</th>
                                   <th>Address</th>
-                                  <!-- <th>Updated Date</th> -->
+                                  <th>Academic Year</th>
                                 </tr>
                               </thead>
 
@@ -110,7 +100,7 @@
                                   <td><%= users[i].father_name %></td>
                                   <td><%= users[i].phone_no %></td>
                                   <td><%= users[i].address %></td>
-                                  <!-- <td><%= users[i].updated %></td> -->
+                                  <td><%= users[i].academic %></td>
                                 </tr>
                                 <% } %>
                               </tbody>
