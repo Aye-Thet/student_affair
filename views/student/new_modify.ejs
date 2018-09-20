@@ -286,7 +286,20 @@
                         </div>
                       </div>
 
-
+                      <div class="item form-group">
+                        <label class="control-label col-md-4 col-sm-3 col-xs-12" for="major">Major <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <select class="optional form-control col-md-7 col-xs-12" id="major" name="major" style="height: 35px" required="required">
+                            <option value="Civil">Civil</option>
+                            <option value="EC">EC</option>
+                            <option value="EP">EP</option>
+                            <option value="IT">IT</option>
+                            <option value="MC">MC</option>
+                            <option value="MP">MP</option>
+                          </select>
+                        </div>
+                      </div>
 
 
 
@@ -400,6 +413,8 @@
     <!-- /script content -->
   </body>
   <script type="text/javascript">
+
+    $('#major').val("<%=users.major %>").change();
     console.log("<%=users.gender%>");
     $('input:radio[name="gender"][value="<%=users.gender%>"]').attr('checked',true);
 

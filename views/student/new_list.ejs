@@ -83,6 +83,7 @@
                                   <th>Student ID</th>
                                   <th>Student Name</th>
                                   <th>High School Mark</th>
+                                  <th>Major</th>
                                   <th>Father Name</th>
                                   <th>Phone Number</th>
                                   <th>Address</th>
@@ -97,10 +98,11 @@
                                   <td><a id="a1" href="/admin/users/new_view/<%= users[i].new_stuid %>"><%= users[i].student_id %></a></td>
                                   <td><a id="a1" href="/admin/users/new_view/<%= users[i].new_stuid %>"><%= users[i].name %></a></td>
                                   <td><%= users[i].high_school_total_mark %></td>
+                                  <td><%= users[i].major %></td>
                                   <td><%= users[i].father_name %></td>
                                   <td><%= users[i].phone_no %></td>
                                   <td><%= users[i].address %></td>
-                                  <td><%= users[i].academic %></td>
+                                  <td><%= users[i].academic-1 %>-<%= users[i].academic %></td>
                                 </tr>
                                 <% } %>
                               </tbody>
@@ -109,12 +111,6 @@
 
                         </div>
                     </div>
-
-
-
-
-
-
 
                   </form>
                 </div>
@@ -131,8 +127,6 @@
     </div>
 
     <% include ../partial/script %>
-    <!-- Custom Theme Scripts -->
-    <script src="/build/js/custom.min.js"></script>
 
   </body>
 </html>

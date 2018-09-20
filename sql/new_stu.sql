@@ -28,6 +28,7 @@ CREATE TABLE db_STUaffair.new_student (
   examiner_dep VARCHAR(128) NOT NULL,
   high_school_subject_mark VARCHAR(45) NOT NULL,
   high_school_total_mark VARCHAR(45) NOT NULL,
+  major VARCHAR(45) NOT NULL,
   health_rec VARCHAR(45) NOT NULL,
   police_rec VARCHAR(45) NOT NULL,
   updated DATETIME NULL DEFAULT CURRENT_TIMESTAMP,

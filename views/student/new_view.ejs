@@ -84,7 +84,7 @@
               <div class="x_title">
                 <h2><b>Student Detail Veiw</b></h2>
                 <ul class="nav navbar-right panel_toolbox">
-                  <h2><b> <%= users.academic %> </b> &nbsp Academic Year </h2>
+                  <h2><b> <%= users.academic - 1 %>-<%= users.academic %> </b> &nbsp Academic Year </h2>
                 </ul>
                 <div class="clearfix"></div>
               </div>
@@ -103,7 +103,7 @@
 
 
                                 <h2><b> Student ID: </b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.student_id %> </h2>
-                                <h2><b> Name: </b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.name %></h2>
+                                <h2><b> Name: </b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.name %></h2>
                                 <h2><b> NRC Number: </b> &nbsp <%= users.nrc_no %> </h2>
                                 <h2><b> Birthdate: </b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.birthday %> </h2>
                                 <h2><b> Gender: </b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.gender %> </h2>
@@ -116,7 +116,7 @@
                                 </div>
 
                                 <h2><b> Address: </b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.address %> </h2>
-                                <h2><b> Phone: </b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.phone_no %> </h2><br><br><br>
+                                <h2><b> Phone: </b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.phone_no %> </h2><br><br><br>
 
 
                               <div class="clearfix"></div>
@@ -131,9 +131,9 @@
                               </div>
 
 
-                              <h2><b> Name: </b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.father_name %> </h2>
+                              <h2><b> Name: </b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.father_name %> </h2>
                               <h2><b> NRC Number: </b> &nbsp <%= users.f_nrc %> </h2>
-                              <h2><b> Occupation: </b> &nbsp&nbsp&nbsp&nbsp&nbsp <%= users.f_occupation %> </h2>
+                              <h2><b> Occupation: </b> &nbsp&nbsp&nbsp&nbsp <%= users.f_occupation %> </h2>
                               <h2><b> Religion: </b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.f_religion %> </h2>
                               <h2><b> Nationality: </b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.f_nationality %> </h2><br>
 
@@ -142,9 +142,9 @@
                                   <div class="clearfix"></div>
                                 </div>
 
-                                <h2><b> Name: </b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.mother_name %> </h2>
+                                <h2><b> Name: </b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.mother_name %> </h2>
                                 <h2><b> NRC Number: </b> &nbsp <%= users.m_nrc %> </h2>
-                                <h2><b> Occupation: </b> &nbsp&nbsp&nbsp&nbsp&nbsp <%= users.m_occupation %> </h2>
+                                <h2><b> Occupation: </b> &nbsp&nbsp&nbsp&nbsp <%= users.m_occupation %> </h2>
                                 <h2><b> Religion: </b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.m_religion %> </h2>
                                 <h2><b> Nationality: </b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.m_nationality %> </h2><br><br><p></p>
 
@@ -162,11 +162,11 @@
                         </div>
                         <div class="x_content">
 
-                          <h2><b>School Name: </b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.high_school_name %></h2>
+                          <h2><b>School Name: </b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.high_school_name %></h2>
                           <h2><b>High School Success Year: </b> &nbsp&nbsp&nbsp&nbsp&nbsp <%= users.high_school_success_year %> </h2>
                           <h2><b>High School Roll Number: </b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.high_school_roll_no %>  </h2>
                           <h2><b>High School Total Mark: </b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.high_school_total_mark %></h2>
-                          <h2><b>Deptment of Examiner: </b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.examiner_dep %></h2><br>
+                          <h2><b>Deptment of Examiner: </b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.examiner_dep %></h2><br>
 
                           <div class="" role="tabpanel" data-example-id="togglable-tabs">
                             <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">

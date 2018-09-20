@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <select class="aa" id="aa" name="aa" onchange="call();">
+
+    </select>
+  </body>
+  <script type="text/javascript">
+  var sel = document.getElementById('aa');
+    var date = new Date();
+    var yr = [];
+    date.setYear(date.getFullYear()-1);
+    yr[0]= date.getFullYear();
+    for (var i = 1; i < 50; i++) {
+      date.setYear(date.getFullYear()+1);
+      yr[i] = date.getFullYear();
+      document.getElementById('aa').append(new Option(yr[i-1]+'/'+yr[i],yr[i]));
+    }
+    function call() {
+      var jj = new Date;
+      jj.setYear(aa.value);
+      jj.setMonth(9);
+      jj.setDate(1)
+      console.log(jj);
+    }
+  </script>
+</html>

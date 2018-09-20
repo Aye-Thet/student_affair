@@ -12,6 +12,11 @@
       background-color: powderblue;
       border-radius: 10px;
     }
+    #academic{
+      margin-left: 10px;
+      width: 314px;
+      height: 33px;
+    }
   </style>
 
   <body class="nav-md">
@@ -63,12 +68,14 @@
 
                     <div class="col-md-6 col-sm-3 col-xs-12 profile_left">
 
+
+
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="academic">Academic Year <span class="required">*</span>
                         </label>
-                        <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input class="form-control col-md-7 col-xs-12" id="academic" name="academic" placeholder="Enter Academic Year" required="required" type="text">
-                        </div>
+                        <select id="academic" name="academic" onchange="call();" >
+
+                        </select>
                       </div>
 
                       <div class="item form-group">
@@ -322,5 +329,25 @@
     <!-- script content -->
     <% include ../partial/script %>
     <!-- /script content -->
+
   </body>
+    <script type="text/javascript">
+    var sel = document.getElementById('academic');
+      var date = new Date();
+      var yr = [];
+      date.setYear(date.getFullYear()-1);
+      yr[0]= date.getFullYear();
+      for (var i = 1; i < 20; i++) {
+        date.setYear(date.getFullYear()+1);
+        yr[i] = date.getFullYear();
+        document.getElementById('academic').append(new Option(yr[i-1]+'/'+yr[i],yr[i]));
+      }
+      function call() {
+        var jj = new Date;
+        jj.setYear(academic.value);
+        jj.setMonth(9);
+        jj.setDate(1)
+        console.log(jj);
+      }
+    </script>
 </html>

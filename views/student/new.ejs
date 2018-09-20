@@ -19,6 +19,11 @@
       padding-top: 20px;
       border-radius: 10px;
     }
+    #academic{
+      margin-left: 10px;
+      width: 314px;
+      height: 33px;
+    }
   </style>
 
   <body class="nav-md">
@@ -73,9 +78,9 @@
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="academic">Academic Year <span class="required">*</span>
                         </label>
-                        <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input id="academic" class="form-control col-md-7 col-xs-12" name="academic" placeholder="Enter Academic Year" required="required" type="Year">
-                        </div>
+                        <select id="academic" name="academic" onchange="call();" >
+
+                        </select>
                       </div>
 
                       <div class="item form-group">
@@ -119,7 +124,7 @@
                       </div>
 
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="religion">Religion <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="religion">Religion
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
                           <input type="text" id="religion" name="religion" placeholder="Enter Student Religion" class="form-control col-md-7 col-xs-12">
@@ -135,21 +140,24 @@
                       </div>
 
                       <div class="item form-group">
-                        <label for="address" class="control-label col-md-3">Address</label>
+                        <label for="address" class="control-label col-md-3">Address <span class="required">*</span>
+                        </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
                           <input id="address" type="address" name="address" class="form-control col-md-7 col-xs-12" required="required" placeholder="Enter Address">
                         </div>
                       </div>
 
                       <div class="item form-group">
-                        <label for="phone_no" class="control-label col-md-3 col-sm-3 col-xs-12">Phone No. </label>
+                        <label for="phone_no" class="control-label col-md-3 col-sm-3 col-xs-12">Phone No. <span class="required">*</span>
+                        </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
                           <input id="phone_no" type="tel" name="phone_no" class="form-control col-md-7 col-xs-12" required="required" placeholder="Enter Phone Number">
                         </div>
                       </div>
 
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Gender <span class="required">*</span>
+                        </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
                           Male:
                           <input type="radio" class="flat" name="gender" id="gender" value="Male" checked="" required="required" class="col-md-8 col-sm-6 col-xs-12" />
@@ -171,7 +179,7 @@
                       </div>
 
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="f_nrc">NRC No.
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="f_nrc">NRC No. <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
                           <input id="f_nrc" class="form-control col-md-7 col-xs-12" name="f_nrc" required="required" placeholder="14/PaTaNa(N)101010" type="NRC">
@@ -179,7 +187,7 @@
                       </div>
 
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="f_occupation">Occupation <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="f_occupation">Occupation
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
                           <input type="text" id="f_occupation" name="f_occupation" class="form-control col-md-7 col-xs-12" placeholder="Enter Father Occupation">
@@ -187,7 +195,7 @@
                       </div>
 
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="f_religion">Religion <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="f_religion">Religion
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
                           <input type="text" id="f_religion" name="f_religion" class="form-control col-md-7 col-xs-12" placeholder="Enter Father Religion">
@@ -211,7 +219,7 @@
                       </div>
 
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="m_nrc">NRC No.
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="m_nrc">NRC No. <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
                           <input id="m_nrc" class="form-control col-md-7 col-xs-12" name="m_nrc" required="required" placeholder="14/PaTaNa(N)101010" type="NRC">
@@ -219,7 +227,7 @@
                       </div>
 
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="m_occupation">Occupation</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="m_occupation">Occupation
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
                           <input type="text" id="m_occupation" name="m_occupation" class="form-control col-md-7 col-xs-12" placeholder="Enter Mother Occupation">
@@ -227,7 +235,7 @@
                       </div>
 
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="m_religion">Religion <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="m_religion">Religion
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
                           <input type="text" id="m_religion" name="m_religion" class="form-control col-md-7 col-xs-12" placeholder="Enter Mother Religion">
@@ -245,22 +253,6 @@
                     </div>
 
                     <div class="x_panel" id="school">
-
-                      <!-- <div class="item form-group">
-                        <label for="major_choice" class="control-label col-md-4 col-sm-3 col-xs-12">Major Choice <span class="required">*</span>
-                        </label>
-                        <div class="col-md-8 col-sm-6 col-xs-12">
-                          <select class="form-control col-md-7 col-xs-12" name="major_choice"  multiple>
-                            <option value="C">Civil</option>
-                            <option value="EC">Electronic Communication</option>
-                            <option value="EP">Electrical Power</option>
-                            <option value="MP">Mechanical Power</option>
-                            <option value="IT">Information Technology</option>
-                            <option value="MC">Mechatronic</option>
-                          </select>
-                        </div>
-                      </div> -->
-
 
                       <div class="item form-group">
                         <label for="high_school_name" class="control-label col-md-4 col-sm-3 col-xs-12">High School Name <span class="required">*</span>
@@ -304,6 +296,22 @@
                       </div>
 
                       <div class="item form-group">
+                        <label class="control-label col-md-4 col-sm-3 col-xs-12" for="major">Major <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <select class="optional form-control col-md-7 col-xs-12" id="major" name="major" style="height: 35px" required="required">
+                            <option value=""><-- Select Major --></option>
+                            <option value="Civil">Civil</option>
+                            <option value="EC">EC</option>
+                            <option value="EP">EP</option>
+                            <option value="IT">IT</option>
+                            <option value="MC">MC</option>
+                            <option value="MP">MP</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="item form-group">
                         <label for="mat_cer" class="control-label col-md-4 col-sm-3 col-xs-12">Matriculation Certificate <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
@@ -342,7 +350,7 @@
                     <div class="form-group">
                       <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3" align="center">
                         <button class="btn btn-primary" type="reset">Reset</button>
-                        <button type="submit" class="btn btn-success">Add</button>
+                        <button type="submit" class="btn btn-success">Register </button>
                       </div>
                     </div>
 
@@ -365,5 +373,23 @@
     <% include ../partial/script %>
     <!-- /script content -->
   </body>
-
+  <script type="text/javascript">
+  var sel = document.getElementById('academic');
+    var date = new Date();
+    var yr = [];
+    date.setYear(date.getFullYear()-1);
+    yr[0]= date.getFullYear();
+    for (var i = 1; i < 20; i++) {
+      date.setYear(date.getFullYear()+1);
+      yr[i] = date.getFullYear();
+      document.getElementById('academic').append(new Option(yr[i-1]+'/'+yr[i],yr[i]));
+    }
+    function call() {
+      var jj = new Date;
+      jj.setYear(academic.value);
+      jj.setMonth(9);
+      jj.setDate(1)
+      console.log(jj);
+    }
+  </script>
 </html>

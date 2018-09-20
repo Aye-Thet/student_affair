@@ -14,7 +14,7 @@ router.all('/list', function(req, res, next) {
 });
 
 /*GET New student list page. */
-router.get('/new_list', function(req, res, next) {
+router.all('/new_list', function(req, res, next) {
   var params = [req.body.keyword || '',req.body.keyword || ''];
   Newstudent.find(params, function(err, users) {
     if (err) next (err);
@@ -55,6 +55,7 @@ router.post('/new', function(req, res, next) {
     req.body.high_school_success_year,
     req.body.high_school_roll_no,
     req.body.high_school_total_mark,
+    req.body.major,
     req.body.mat_cer,
     req.body.high_school_subject_mark,
     req.body.examiner_dep,
@@ -90,6 +91,7 @@ router.get('/new_modify/:new_stuid', function(req, res, next) {
 router.post('/new_modify', function(req, res, next) {
   var params = [
     req.body.academic,
+    req.body.student_id,
     req.body.new_stuid,
     req.body.name,
     req.body.nrc_no,
@@ -114,12 +116,12 @@ router.post('/new_modify', function(req, res, next) {
     req.body.high_school_success_year,
     req.body.high_school_roll_no,
     req.body.high_school_total_mark,
+    req.body.major,
     req.body.high_school_subject_mark,
     req.body.mat_cer,
     req.body.examiner_dep,
     req.body.health_rec,
     req.body.police_rec,
-    req.body.new_stuid
   ];
   Newstudent.findByID( req.body.new_stuid, function(err, users) {
     if (err) throw err;
@@ -311,6 +313,10 @@ router.get('/forth_C', function(req, res, next) {
 /*GET add student attendence. */
 router.get('/add_attendance', function(req, res, next) {
   res.render('attendance/add_attendance');
+});
+
+router.get('/test', function(req, res, next) {
+  res.render('test');
 });
 
 module.exports = router;
