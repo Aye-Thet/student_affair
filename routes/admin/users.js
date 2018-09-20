@@ -6,7 +6,11 @@ var Newstudent = require('../../models/Newstudent');
 
 /*GET student list page. */
 router.all('/list', function(req, res, next) {
-  var params = [req.body.keyword || '',req.body.keyword || ''];
+  var p = {
+    year: req.query.year,
+    major: req.query.major,
+  };
+  var params = [p.year, p.major];
   Student.find(params, function(err, users) {
     if (err) next (err);
     res.render('student/list', {title: 'Stuent List', users: users});
