@@ -24,9 +24,9 @@ var Newstudent = {
     sql += " WHERE name LIKE concat('%', ?, '%')";
     return db.query(sql, params, callback);
   },
-  compare: function(cleartext, encrypted){
-    return bcrypt.compareSync(cleartext, encrypted);
-  }
+  // compare: function(cleartext, encrypted){
+  //   return bcrypt.compareSync(cleartext, encrypted);
+  // }
 };
 
 module.exports = Newstudent;

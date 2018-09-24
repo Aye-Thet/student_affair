@@ -28,5 +28,7 @@ CREATE TABLE db_STUaffair.old_student (
   high_school_roll_no VARCHAR(10) NOT NULL,
   updated DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
   inserted DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+  insertedby INT(11) NULL,
+  updatedby INT(11) NULL,
   PRIMARY KEY (old_stuid),
   UNIQUE INDEX old_stuid_UNIQUE (old_stuid ASC));

@@ -3,6 +3,7 @@ var router = express.Router();
 
 var Student = require('../../models/Student');
 var Newstudent = require('../../models/Newstudent');
+var Attendance = require('../../models/Attendance');
 
 /*GET student list page. */
 router.all('/list', function(req, res, next) {
@@ -13,7 +14,7 @@ router.all('/list', function(req, res, next) {
   var params = [p.year, p.major];
   Student.find(params, function(err, users) {
     if (err) next (err);
-    res.render('student/list', {title: 'Stuent List', users: users});
+    res.render('student/list', {title: req.body.major+'Stuent List', users: users});
   });
 });
 
@@ -260,7 +261,7 @@ router.post('/remove', function(req, res, next){
   Student.remove(req.body.old_stuid, function(err, user) {
     if (err) throw err;
     req.flash('info', 'Successfully');
-    res.redirect('/admin/users/list');
+    res.redirect('/admin/users/list/?');
   });
 });
 
@@ -271,7 +272,9 @@ router.get('/IT', function(req, res, next) {
 
 /* Civil. */
 router.get('/C', function(req, res, next) {
-  res.render('student/major/C');
+  Student.find(function(err, users) {
+    res.render('student/major/C', {users: users});
+  });
 });
 
 /* EC. */
@@ -294,33 +297,169 @@ router.get('/MC', function(req, res, next) {
   res.render('student/major/MC');
 });
 
-/*GET first year Civil. */
-router.get('/first_C', function(req, res, next) {
-  res.render('student/year/first_C');
-});
-
-/*GET second year Civil. */
-router.get('/second_C', function(req, res, next) {
-  res.render('student/year/second_C');
-});
-
-/*GET third year Civil. */
-router.get('/third_C', function(req, res, next) {
-  res.render('student/year/third_C');
-});
-
-/*GET third year Civil. */
-router.get('/forth_C', function(req, res, next) {
-  res.render('student/year/forth_C');
-});
-
 /*GET add student attendence. */
 router.get('/add_attendance', function(req, res, next) {
   res.render('attendance/add_attendance');
 });
 
-router.get('/test', function(req, res, next) {
-  res.render('test');
+/*GET view student attendence. */
+router.get('/view_attendance', function(req, res, next) {
+  res.render('attendance/view_attendance');
 });
+
+
+/* Civil Attendance. */
+router.get('/add_C_attendance', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('attendance/add/add_C_attendance', {users: users});
+  });
+});
+
+/* EC Attendance. */
+router.get('/add_EC_attendance', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('attendance/add/add_EC_attendance', {users: users});
+  });
+});
+
+/* EP Attendance. */
+router.get('/add_EP_attendance', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('attendance/add/add_EP_attendance', {users: users});
+  });
+});
+
+/* MP Attendance. */
+router.get('/add_MP_attendance', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('attendance/add/add_MP_attendance', {users: users});
+  });
+});
+
+/* MC Attendance. */
+router.get('/add_MC_attendance', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('attendance/add/add_MC_attendance', {users: users});
+  });
+});
+
+
+
+/* IT Attendance. */
+router.get('/add_IT_attendance', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('attendance/add/add_IT_attendance', {users: users});
+  });
+});
+
+/* Civil Attendance. */
+router.get('/view_C_attendance', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('attendance/view/view_C_attendance', {users: users});
+  });
+});
+
+/* EC Attendance. */
+router.get('/view_EC_attendance', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('attendance/view/view_EC_attendance', {users: users});
+  });
+});
+
+/* EP Attendance. */
+router.get('/view_EP_attendance', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('attendance/view/view_EP_attendance', {users: users});
+  });
+});
+
+/* MP Attendance. */
+router.get('/view_MP_attendance', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('attendance/view/view_MP_attendance', {users: users});
+  });
+});
+
+/* MC Attendance. */
+router.get('/view_MC_attendance', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('attendance/view/view_MC_attendance', {users: users});
+  });
+});
+
+
+
+/* IT Attendance. */
+router.get('/view_IT_attendance', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('attendance/view/view_IT_attendance', {users: users});
+  });
+});
+
+
+/*GET student list page. */
+router.all('/add_attendance_list', function(req, res, next) {
+  var p = {
+    year: req.query.year,
+    major: req.query.major,
+  };
+  var params = [p.year, p.major];
+  Attendance.find(params, function(err, users) {
+    if (err) next (err);
+    res.render('attendance/add_attendance_list', {title: ' Add Stuent Attendance List', users: users});
+  });
+});
+
+/*GET student list page. */
+router.all('/view_attendance_list', function(req, res, next) {
+  var p = {
+    year: req.query.year,
+    major: req.query.major,
+  };
+  var params = [p.year, p.major];
+  Attendance.find(params, function(err, users) {
+    if (err) next (err);
+    res.render('attendance/view_attendance_list', {title: ' Add Stuent Attendance List', users: users});
+  });
+});
+
+router.get('/attendance/init', function(req, res, next) {
+  var student = [];
+  Student.find(function (err,stu) {
+    if(err) next (err);
+    for(var i in stu){
+      student.push([stu[i].student_id,stu[i].name,stu[i].roll_no,stu[i].major,stu[i].s_year])
+    }
+    Attendance.init(student,function (err2,rtn) {
+      if(err2) next (err2);
+      res.send('success');
+    });
+  });
+});
+
+/* student detail for Attendance . */
+router.get('/detail/:id', function(req, res, next) {
+  Attendance.findByID(req.params.id,function(err, users) {
+    if(err) next (err)
+    console.log('lllllll',users);
+    res.render('attendance/detail', {users: users[0]});
+  });
+});
+
+router.post('/detail',function (req,res,next) {
+  var value = [req.body.percent,req.body.id];
+  Attendance.update(value,req.body.month,function (err,rtn) {
+    if(err) next(err);
+    res.redirect('/admin/users/view_attendance_list/?year='+req.body.year+'&major='+req.body.major);
+  })
+})
+
+router.get('/adlist',function (req,res) {
+  Attendance.find(function (err,rtn) {
+    if(err) throw err;
+    res.send(rtn);
+  });
+
+})
 
 module.exports = router;

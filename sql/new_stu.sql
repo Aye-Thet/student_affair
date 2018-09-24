@@ -28,10 +28,13 @@ CREATE TABLE db_STUaffair.new_student (
   examiner_dep VARCHAR(128) NOT NULL,
   high_school_subject_mark VARCHAR(45) NOT NULL,
   high_school_total_mark VARCHAR(45) NOT NULL,
+  mat_cer VARCHAR(45) NOT NULL,
   major VARCHAR(45) NOT NULL,
   health_rec VARCHAR(45) NOT NULL,
   police_rec VARCHAR(45) NOT NULL,
   updated DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
   inserted DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+  insertedby INT(11) NULL,
+  updatedby INT(11) NULL,
   PRIMARY KEY (new_stuid),
   UNIQUE INDEX new_stuid_UNIQUE (new_stuid ASC));

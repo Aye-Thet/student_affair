@@ -1,0 +1,17 @@
+CREATE TABLE db_STUaffair.attendance (
+  attendance_id INT NOT NULL,
+  name VARCHAR(45) NOT NULL,
+  roll_no VARCHAR(45) NOT NULL,
+  december NVARCHAR(20) NOT NULL,
+  january NVARCHAR(20) NOT NULL,
+  february NVARCHAR(20) NOT NULL,
+  march NVARCHAR(20) NOT NULL,
+  jun NVARCHAR(20) NOT NULL,
+  july NVARCHAR(20) NOT NULL,
+  august NVARCHAR(20) NOT NULL,
+  september NVARCHAR(20) NOT NULL,
+  inserted DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  insertedby INT(11) NULL,
+  updatedby INT(11) NULL,
+  PRIMARY KEY (attendance_id));

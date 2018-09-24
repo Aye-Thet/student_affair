@@ -27,9 +27,9 @@ var Student = {
     if(params[0] != undefined && params[1] != undefined) sql +="WHERE s_year = ? AND major = ?";
     return db.query(sql, params, callback);
   },
-  compare: function(cleartext, encrypted){
-    return bcrypt.compareSync(cleartext, encrypted);
-  }
+  // compare: function(cleartext, encrypted){
+  //   return bcrypt.compareSync(cleartext, encrypted);
+  // }
 };
 
 module.exports = Student;

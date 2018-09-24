@@ -1,6 +1,6 @@
 <style media="screen">
   #btn-nav{
-    width: 150px;
+    width: 165px;
     height: 45px;
     border-radius: 5px;
     background-color: #0BCAB9;
@@ -40,8 +40,10 @@
           <div class="btn-group">
           <button data-toggle="dropdown" type="button" id="btn-nav">Registration</button>
           <ul role="menu" class="dropdown-menu">
-            <li><a href="/admin/users/new">New Student</a></li>
-            <li><a href="/admin/users/old">Old Student</a></li>
+            <li><a href="/admin/users/new"> Register New Student</a></li>
+            <li><a href="/admin/users/old"> Register Old Student</a></li>
+            <li><a href="/admin/users/new_list"> New Student List</a></li>
+            <li><a href="/admin/users/list"> Old Student List</a></li>
           </ul>
           </div>
 
@@ -62,7 +64,7 @@
           <button data-toggle="dropdown" type="button" id="btn-nav">Attendance</button>
           <ul role="menu" class="dropdown-menu">
             <li><a href="/admin/users/add_attendance">Add Student Attendance</a></li>
-            <li><a href="#">View Student Attendance</a></li>
+            <li><a href="/admin/users/view_attendance">View Student Attendance</a></li>
           </ul>
           </div>
 
@@ -80,10 +82,6 @@
             <li><a href="#">Add Grading</a></li>
             <li><a href="#">View Grading</a></li>
           </ul>
-          </div>
-
-          <div class="btn-group">
-            <button data-toggle="dropdown" type="button" id="btn-nav"><a href="/logout">Lockout</a></button>
           </div>
 
         </div>
