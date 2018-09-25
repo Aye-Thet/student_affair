@@ -41,6 +41,15 @@ app.use(function(req, res, next){
 });
 
 app.use('/', indexRouter);
+app.use(function(req, res, next) {
+  if(req.session.user){
+    next();
+  }else{
+    req.flash('warning', 'authorization failed! Please login');
+    req.flash('forward', req.path);
+    res.redirect('/login');
+  }
+});
 
 // app.use('/users', usersRouter);
 app.use('/admin', admin);

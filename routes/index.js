@@ -9,13 +9,13 @@ router.get('/blank', function(req, res, next) {
 });
 
 // /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/home', function(req, res, next) {
   res.render('home', { title: 'Home Page' });
 });
 
 /* GET signup page. */
 router.get('/signup', function(req, res, next) {
-  res.render('commons/signup', {title: 'Sign Up Page'});
+    res.render('commons/signup', {title: 'Sign up Page'});
 });
 
 /* POST signup page. */
@@ -47,7 +47,7 @@ router.post('/dupemail', function(req, res, next){
 });
 
 /* GET login page. */
-router.get('/login', function(req, res, next) {
+router.get('/', function(req, res, next) {
   var email = (req.cookies.email)?req.cookies.email:'';
   res.render('commons/login', {title: 'Login Form', email:email});
 });
@@ -63,7 +63,7 @@ router.post('/login', function(req, res, next){
       req.session.user = { uid: user[0].uid, name: user[0].name, email: user[0].email, role: user[0].role}
       if(req.body.rememberme) res.cookie('email', user[0].email, {maxAge: 86400*7})
       else res.cookie('email', '', {maxAge: 0});
-      res.redirect('/');
+      res.redirect('/home');
     }
   });
 });
