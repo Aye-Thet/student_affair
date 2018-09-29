@@ -10,7 +10,7 @@ router.get('/blank', function(req, res, next) {
 
 // /* GET home page. */
 router.get('/home', function(req, res, next) {
-  res.render('home', { title: 'Home Page' });
+  res.render('home', { title: 'Home Page'});
 });
 
 /* GET signup page. */
@@ -29,7 +29,7 @@ router.post('/signup', function(req, res, next) {
     }else{
       User.add(params, function(err2, result){
         if(err2) throw err2;
-        res.redirect('/login')
+        res.redirect('/')
       });
     }
   });

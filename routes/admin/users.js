@@ -4,6 +4,7 @@ var router = express.Router();
 var Student = require('../../models/Student');
 var Newstudent = require('../../models/Newstudent');
 var Attendance = require('../../models/Attendance');
+var Subject = require('../../models/Subject');
 
 /*GET student list page. */
 router.all('/list', function(req, res, next) {
@@ -14,7 +15,7 @@ router.all('/list', function(req, res, next) {
   var params = [p.year, p.major];
   Student.find(params, function(err, users) {
     if (err) next (err);
-    res.render('student/list', {title: req.body.major+'Stuent List', users: users});
+    res.render('student/list', {title: 'Stuent List', users: users});
   });
 });
 
@@ -149,6 +150,15 @@ router.post('/new_remove', function(req, res, next){
   });
 });
 
+/*GET new student major choose. */
+router.get('/majorchoose/:new_stuid', function(req, res, next) {
+  Newstudent.findByID(req.params.new_stuid, function(err, newStu) {
+    if(err) throw err;
+    if(newStu.length == 0) next (new Error('User data not found!!'));
+    res.render('student/majorchoose', {title: 'Major Choose', users: newStu[0]});
+  });
+});
+
 /*GET old student register. */
 router.get('/old', function(req, res, next) {
   res.render('student/old');
@@ -214,6 +224,7 @@ router.get('/modify/:old_stuid', function(req, res, next) {
   });
 });
 
+/* POST old student modify */
 router.post('/modify', function(req, res, next) {
   var params = [
     req.body.academic,
@@ -419,7 +430,7 @@ router.all('/view_attendance_list', function(req, res, next) {
   var params = [p.year, p.major];
   Attendance.find(params, function(err, users) {
     if (err) next (err);
-    res.render('attendance/view_attendance_list', {title: ' Add Stuent Attendance List', users: users});
+    res.render('attendance/view_attendance_list', {title: ' View Stuent Attendance List', users: users});
   });
 });
 
@@ -451,15 +462,89 @@ router.post('/detail',function (req,res,next) {
   Attendance.update(value,req.body.month,function (err,rtn) {
     if(err) next(err);
     res.redirect('/admin/users/view_attendance_list/?year='+req.body.year+'&major='+req.body.major);
-  })
-})
+  });
+});
 
 router.get('/adlist',function (req,res) {
   Attendance.find(function (err,rtn) {
     if(err) throw err;
     res.send(rtn);
   });
+});
 
-})
+/*GET add new subject . */
+router.get('/addSub', function(req, res, next) {
+  res.render('subject/addSub');
+});
+
+/*POST old student register. */
+router.post('/addSub', function(req, res, next) {
+  var params = [
+    req.body.sub_name,
+    req.body.sub_code,
+    req.body.major,
+    req.body.s_year,
+  ];
+  Subject.addSub(params, function(err, result) {
+    console.log('Data', params);
+    if(err) next (err);
+    console.log('result', result);
+    req.flash('warn', 'Insert Success');
+    res.redirect('/admin/users/sublist');
+  });
+});
+
+/* GET modify Subject */
+router.get('/modifySub/:sub_id', function(req, res, next) {
+  Subject.findByID(req.params.sub_id, function(err, users) {
+    if(err) throw err;
+    if(users.length == 0) next (new Error('Subject data not found!!!'));
+    res.render('subject/modifySub', {title: 'Modify Subject', users: users[0]});
+  });
+});
+
+/* POST subject modify */
+router.post('/modifySub', function(req, res, next) {
+  var params = [
+    req.body.sub_name,
+    req.body.sub_code,
+    req.body.major,
+    req.body.s_year,
+    req.body.updated,
+  ];
+  Subject.findByID(req.body.sub_id, function(err, users) {
+    if(err) throw err;
+    if(users.length == 0) next (new Error('Subject data not found!!!'));
+    Subject.update(params, function(uerr, uuser) {
+      if(uerr) throw uerr;
+      req.flash('info', 'Success Updated');
+      res.redirect('/admin/users/sublist');
+    });
+  });
+});
+
+/*GET Delete Subject. */
+router.post('/remove', function(req, res, next) {
+  Subject.remove(req.body.sub_id, function(err, user) {
+    if(err) throw err;
+    req.flash('info', 'Successfully');
+    res.redirect('/admin/users/sublist/?');
+  });
+});
+
+/*GET New student list page. */
+router.all('/sublist', function(req, res, next) {
+  var params = [req.body.keyword || '',req.body.keyword || ''];
+  Subject.find(params, function(err, users) {
+    if (err) next (err);
+    console.log(users);
+    res.render('subject/sublist', {title: 'Subject List', users: users });
+  });
+});
+
+/* IT . */
+// router.get('/test2', function(req, res, next) {
+//   res.render('test2');
+// });
 
 module.exports = router;

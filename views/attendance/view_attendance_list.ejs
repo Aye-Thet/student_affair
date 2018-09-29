@@ -11,6 +11,7 @@
       color: black;
     }
     table{
+      width: 100%;
       color: black;
     }
     #a1, h2{
@@ -18,9 +19,11 @@
     }
     th{
       background-color: darkgray;
+      height: 50px;
     }
     td{
       background-color: powderblue;
+      border: 1px solid black;
     }
     .month{
       width: 80px;
@@ -98,6 +101,7 @@
                                         <th>July</th>
                                         <th>August</th>
                                         <th>September</th>
+                                        <!-- <th>Monthly attendance average</th> -->
                                       </tr>
                                     </thead>
 
@@ -114,7 +118,18 @@
                                         <td><%= users[i].jun %></td>
                                         <td><%= users[i].july %></td>
                                         <td><%= users[i].august %></td>
-                                        <td><%= users[i].september %></td>
+                                        <td><%= users[i].august %></td>
+
+                                        <!-- <td><%= users[i].december %> +
+                                            <%= users[i].january %> +
+                                            <%= users[i].february %> +
+                                            <%= users[i].march %> +
+                                            <%= users[i].jun %> +
+                                            <%= users[i].july %> +
+                                            <%= users[i].august %> +
+                                            <%= users[i].august %>
+                                          </td> -->
+
                                       </tr>
                                       <% } %>
                                     </tbody>

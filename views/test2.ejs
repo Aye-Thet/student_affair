@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+        body
+        {
+            font-family: Arial;
+            font-size: 10pt;
+        }
+        table
+        {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+            background-color: #fff;
+        }
+        table th
+        {
+            background-color: #B8DBFD;
+            color: #333;
+            font-weight: bold;
+        }
+        table th, table td
+        {
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+        table, table table td
+        {
+            border: 0px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <table id="tblCustomers" border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+            <tr>
+                <th style="width: 90px">Customer Id</th>
+                <th style="width: 120px">Name</th>
+                <th style="width: 90px">Country</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>John Hammond</td>
+                <td>United States</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Mudassar Khan</td>
+                <td>India</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Suzanne Mathews</td>
+                <td>France</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Robert Schidner</td>
+                <td>Russia</td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    <br />
+    <input type="button" id="btnGetCount" value="Count Rows" onclick = "CountRows()" />
+    <script type="text/javascript">
+        function CountRows() {
+            var totalRowCount = 0;
+            var rowCount = 0;
+            var table = document.getElementById("tblCustomers");
+            var rows = table.getElementsByTagName("tr")
+            for (var i = 0; i < rows.length; i++) {
+                totalRowCount++;
+                if (rows[i].getElementsByTagName("td").length > 0) {
+                    rowCount++;
+                }
+            }
+            var message = "Total Row Count: " + totalRowCount;
+            message += "\nRow Count: " + rowCount;
+            alert(message);
+        }
+    </script>
+</body>
+</html>

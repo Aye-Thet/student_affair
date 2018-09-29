@@ -64,53 +64,67 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel" style="background-color: powderblue; color: black;">
                   <div class="x_title">
-                    <h2> Add Student Attendance</h2>
+                    <h2> Modify Subject </h2>
                     <div class="clearfix"></div>
                   </div>
-                  <form action="/admin/users/detail" method="post" class="form-horizontal form-label-left" novalidate>
-                    <input type="hidden" name="id" value="<%=users.student_id %>">
-                    <input type="hidden" name="major" value="<%= users.major %>">
-                    <input type="hidden" name="year" value="<%= users.s_year %>">
+                  <form id="frm" action="/admin/users/modifySub" method="post" class="form-horizontal form-label-left" novalidate>
+                    <input type="hidden" name="sub_id" value="<%= users.sub_id %>">
 
                     <div class="col-md-8 col-sm-6 col-xs-12 profile_left" id="data">
 
                       <div class="item form-group" id="data">
-                        <h2><b> Student ID: </b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.student_id %></h2>
-                        <h2><b>Name: </b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.name %></h2>
-                        <h2><b>Major: </b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%= users.major %></h2>
-                        <h2><b>Roll Number: </b> &nbsp <%= users.roll_no %></h2>
+
                       </div>
 
-
                       <div class="item form-group">
-                        <label for="" class="control-label col-md-3 col-sm-3 col-xs-12">Mont
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="major">Major <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <select class="optional form-control col-md-7 col-xs-12" name="month" style="height: 35px">
-                            <option value=""><-- Select Month --></option>
-                            <option value="1">December</option>
-                            <option value="2">January</option>
-                            <option value="3">February</option>
-                            <option value="4">March</option>
-                            <option value="5">June</option>
-                            <option value="6">July</option>
-                            <option value="7">August</option>
-                            <option value="8">September</option>
+                          <select class="optional form-control col-md-7 col-xs-12" id="major" name="major" style="height: 35px" required="required">
+                            <option value="Civil">Civil</option>
+                            <option value="EC">EC</option>
+                            <option value="EP">EP</option>
+                            <option value="IT">IT</option>
+                            <option value="MC">MC</option>
+                            <option value="MP">MP</option>
                           </select>
                         </div>
                       </div>
 
-
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="percent">Percent
+                        <label for="" class="control-label col-md-3 col-sm-3 col-xs-12">Year <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                          <input type="text" id="percent" name="percent" class="form-control col-md-7 col-xs-12">
+                          <select class="optional form-control col-md-7 col-xs-12" id="s_year" name="s_year" style="height: 35px" required="required">
+                            <option value="1BE">First Year</option>
+                            <option value="2BE">Second Year</option>
+                            <option value="3BE">Third Year</option>
+                            <option value="4BE">Forth Year</option>
+                            <option value="5BE">Five Year</option>
+                            <option value="6BE">Sixth Year</option>
+                          </select>
                         </div>
                       </div>
+
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="subject">Subject <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input id="sub_name" class="form-control col-md-7 col-xs-12" name="sub_name" value="<%= users.sub_name %>" required="required" type="text">
+                        </div>
+                      </div>
+
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="sub_code">Subject Code <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                          <input id="sub_code" class="form-control col-md-7 col-xs-12" name="sub_code" value="<%= users.sub_code %>" required="required" type="text">
+                        </div>
+                      </div>
+
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3" align="center">
-                          <button type="submit" class="btn btn-success">Save</button>
+                          <button type="submit" class="btn btn-success">Modify</button>
                         </div>
                       </div>
 
@@ -135,5 +149,8 @@
     <!-- /script content -->
 
   </body>
-
+  <script type="text/javascript">
+    $('#major').val("<%= users.major %>").change();
+    $('#s_year').val("<%= users.s_year %>").change();
+  </script>
 </html>

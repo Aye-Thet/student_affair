@@ -47,7 +47,7 @@ app.use(function(req, res, next) {
   }else{
     req.flash('warning', 'authorization failed! Please login');
     req.flash('forward', req.path);
-    res.redirect('/login');
+    res.redirect('/');
   }
 });
 
