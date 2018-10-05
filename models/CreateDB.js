@@ -15,6 +15,10 @@ var CreateDB = {
     var sql = 'SELECT * FROM '+ dbName + ' JOIN old_student ON old_student.student_id = '+dbName+'.student_id';
     return db.query(sql,[dbName],callback);
   },
+  findDBList: function(dbName, callback) {
+    var sql = 'SELECT * FROM '+ dbName + '';
+    return db.query(sql,[dbName],callback);
+  },
   findByID: function(dbName, callback) {
     var sql = 'SELECT * FROM '+ dbName + ' JOIN old_student ON old_student.student_id = '+dbName+'.student_id WHERE student_id =?';
     console.log(sql);
@@ -26,7 +30,9 @@ var CreateDB = {
     return db.query(sql,[student_id],callback);
   },
   updateMark: function(dbName, subj, mark, student_id, callback) {
-    var sql = 'UPDATE '+dbName+' SET'+subj+' = '+mark+' WHERE student_id = '+student_id+'';
+    console.log('calll');
+    var sql = 'UPDATE '+dbName+' SET '+subj+' = '+mark+' WHERE student_id = '+student_id+'';
+    console.log(sql);
     return db.query(sql, [subj], callback);
   }
 }

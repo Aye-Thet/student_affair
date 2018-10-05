@@ -404,8 +404,6 @@ router.get('/view_MC_attendance', function(req, res, next) {
   });
 });
 
-
-
 /* IT Attendance. */
 router.get('/view_IT_attendance', function(req, res, next) {
   Student.find(function(err, users) {
@@ -661,7 +659,75 @@ router.get('/updatemark/:student_id', function(req, res, next) {
       if(err2) next (err2);
       res.render('exammark/updatemark', {users: users[0],subj:rtn2});
     });
+  });
+});
 
+/* student detail for exammark . */
+router.post('/updatemark', function(req, res, next) {
+  var dbName = req.body.major+req.body.year;
+  // var params = [ req.body.subj, req.body.mark];
+    CreateDB.updateMark(dbName.toLowerCase(),req.body.subj,req.body.mark, req.body.id, function(err2, users2) {
+      if(err2) throw err2;
+      res.redirect('/admin/users/view_exammark_list/?year='+req.body.year+'&major='+req.body.major+'');
+    });
+  });
+
+router.get('/view_exammark_list/', function(req, res, next) {
+  var p = [req.query.major,req.query.year];
+  var params = req.query.major+req.query.year;
+  CreateDB.findDB(params.toLowerCase(), function(err, users) {
+    if(err) next (err);
+    Subject.findClass(p,function (err2,rtn2) {
+      if(err2) next (err2);
+      res.render('exammark/view_exammark_list', {title: 'View Exammark List', users: users,subj:rtn2});
+    });
+  });
+});
+
+/*GET view student attendence. */
+router.get('/view_exammark', function(req, res, next) {
+  res.render('exammark/view_exammark');
+});
+
+/* Civil Attendance. */
+router.get('/view_C_exammark', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('exammark/view/view_C_exammark', {users: users});
+  });
+});
+
+/* EC Attendance. */
+router.get('/view_EC_exammark', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('exammark/view/view_EC_exammark', {users: users});
+  });
+});
+
+/* EP Attendance. */
+router.get('/view_EP_exammark', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('exammark/view/view_EP_exammark', {users: users});
+  });
+});
+
+/* MP Attendance. */
+router.get('/view_MP_exammark', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('exammark/view/view_MP_exammark', {users: users});
+  });
+});
+
+/* MC Attendance. */
+router.get('/view_MC_exammark', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('exammark/view/view_MC_exammark', {users: users});
+  });
+});
+
+/* IT Attendance. */
+router.get('/view_IT_exammark', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('exammark/view/view_IT_exammark', {users: users});
   });
 });
 
