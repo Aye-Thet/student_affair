@@ -731,4 +731,164 @@ router.get('/view_IT_exammark', function(req, res, next) {
   });
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+/*GET add student exammark. */
+router.get('/add_grading', function(req, res, next) {
+  res.render('grading/add_grading');
+});
+
+/* Add Civil exammark. */
+router.get('/add_C_grading', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('grading/add/add_C_grading', {users: users});
+  });
+});
+
+/* Add EC exammark. */
+router.get('/add_EC_grading', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('grading/add/add_EC_grading', {users: users});
+  });
+});
+
+/* Add EP exammark. */
+router.get('/add_EP_grading', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('grading/add/add_EP_grading', {users: users});
+  });
+});
+
+/* Add MP exammark. */
+router.get('/add_MP_grading', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('grading/add/add_MP_grading', {users: users});
+  });
+});
+
+/* Add MC exammark. */
+router.get('/add_MC_grading', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('grading/add/add_MC_grading', {users: users});
+  });
+});
+
+
+
+/* Add IT exammark. */
+router.get('/add_IT_grading', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('grading/add/add_IT_grading', {users: users});
+  });
+});
+
+/*GET student list page. */
+router.all('/add_grading_list', function(req, res, next) {
+  var p = {
+    major: req.query.major,
+    year: req.query.year,
+  };
+  var params = p.major+ p.year;
+  CreateDB.findDB(params.toLowerCase(), function(err, users) {
+    if (err) next (err);
+    console.log('users', users);
+    res.render('grading/add_grading_list', {title: ' Add Stuent grading List', users: users});
+  });
+});
+
+/* student detail for exammark . */
+router.get('/updategrade/:student_id', function(req, res, next) {
+  var dbName = req.query.m+ req.query.y;
+  var params = [req.query.m,req.query.y]
+  console.log(dbName);
+  var name =dbName.toLowerCase();
+  CreateDB.findByIDone(name,req.params.student_id,function(err, users) {
+    if(err) next (err);
+    console.log('lllllll',users);
+    Subject.findClass(params,function (err2,rtn2) {
+      if(err2) next (err2);
+      res.render('grading/updategrade', {users: users[0],subj:rtn2});
+    });
+  });
+});
+
+/* student detail for exammark . */
+router.post('/updategrade', function(req, res, next) {
+  var dbName = req.body.major+req.body.year;
+  // var params = [ req.body.subj, req.body.mark];
+    CreateDB.updateMark(dbName.toLowerCase(),req.body.subj,req.body.mark, req.body.id, function(err2, users2) {
+      if(err2) throw err2;
+      res.redirect('/admin/users/view_grading_list/?year='+req.body.year+'&major='+req.body.major+'');
+    });
+  });
+
+router.get('/view_grading_list/', function(req, res, next) {
+  var p = [req.query.major,req.query.year];
+  var params = req.query.major+req.query.year;
+  CreateDB.findDB(params.toLowerCase(), function(err, users) {
+    if(err) next (err);
+    Subject.findClass(p,function (err2,rtn2) {
+      if(err2) next (err2);
+      res.render('grading/view_grading_list', {title: 'View Grading List', users: users,subj:rtn2});
+    });
+  });
+});
+
+/*GET view student attendence. */
+router.get('/view_grading', function(req, res, next) {
+  res.render('grading/view_grading');
+});
+
+/* Civil Attendance. */
+router.get('/view_C_grading', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('grading/view/view_C_grading', {users: users});
+  });
+});
+
+/* EC Attendance. */
+router.get('/view_EC_grading', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('grading/view/view_EC_grading', {users: users});
+  });
+});
+
+/* EP Attendance. */
+router.get('/view_EP_grading', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('grading/view/view_EP_grading', {users: users});
+  });
+});
+
+/* MP Attendance. */
+router.get('/view_MP_grading', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('grading/view/view_MP_grading', {users: users});
+  });
+});
+
+/* MC Attendance. */
+router.get('/view_MC_grading', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('grading/view/view_MC_grading', {users: users});
+  });
+});
+
+/* IT Attendance. */
+router.get('/view_IT_grading', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('grading/view/view_IT_grading', {users: users});
+  });
+});
+
 module.exports = router;

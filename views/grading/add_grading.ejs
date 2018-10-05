@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partial/head %>
+    <title>Student Affairs | </title>
+  </head>
+
+  <style media="screen">
+    h2{
+      color: black;
+    }
+    table{
+      color: black;
+      border: 1px solid black;
+      background-color: #cedbef;
+    }
+    a{
+      color: black;
+    }
+    th{
+      font-size: 20px;
+      border: 1px solid black;
+      background-color: #560f8c;
+      color: white;
+    }
+    tr,td{
+      height: 55px;
+      border: 1px solid gray;
+      font-size: 20px;
+    }
+  </style>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="/home" class="site_title"><i class="fa fa-leaf"></i> <span>Student Affairs</span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <% include ../partial/menu_profile %>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <% include ../partial/sidebar %>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <% include ../partial/menu_footer %>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <% include ../partial/top_nav %>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+
+
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>List of Department</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a href="/admin/users/CreateDB" class="collapse-link">Create Student Exam Mark Table</a>
+                      </li>
+                    </ul>
+                  <div class="clearfix"></div>
+
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>Department Name</th>
+                        <th>Total Student</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><a href="/admin/users/add_C_grading"> Civil </a></td>
+                        <td>97</td>
+                      </tr>
+                      <tr>
+                        <td><a href="/admin/users/add_EC_grading"> Electronic Communication </a></td>
+                        <td>84</td>
+                      </tr>
+                      <tr>
+                        <td><a href="/admin/users/add_EP_grading"> Electronic Power </a></td>
+                        <td>84</td>
+                      </tr>
+                      <tr>
+                        <td><a href="/admin/users/add_MP_grading"> Mechanical Power </a></td>
+                        <td>77</td>
+                      </tr>
+                      <tr>
+                        <td><a href="/admin/users/add_IT_grading"> Informaton Technology </a></td>
+                        <td>74</td>
+                      </tr>
+                      <tr>
+                        <td><a href="/admin/users/add_MC_grading"> Mechanical </a></td>
+                        <td>70</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <% include ../partial/footer %>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <% include ../partial/script %>
+  </body>
+</html>

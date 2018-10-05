@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partial/head %>
+
+    <title>Student Affairs</title>
+    <script src="/vendors/jquery/dist/jquery.min.js"></script>
+  </head>
+  <style media="screen">
+    h3{
+      color: black;
+    }
+    table{
+      width: 100%;
+      color: black;
+    }
+    #a1, h2{
+      color: black;
+    }
+    th{
+      background-color: darkgray;
+      height: 50px;
+    }
+    td{
+      background-color: powderblue;
+      border: 1px solid black;
+    }
+    .month{
+      width: 80px;
+      height: 25px;
+    }
+  </style>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="/home" class="site_title"><i class="fa fa-leaf"></i> <span>Student Affairs</span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <% include ../partial/menu_profile %>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <% include ../partial/sidebar %>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <% include ../partial/menu_footer %>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <% include ../partial/top_nav %>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <form class="" action="/admin/users/view_exammark_list" method="post">
+
+          <div class="">
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+
+
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_content">
+                          <div class="table-responsive">
+
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                              <div class="x_panel">
+                                <div class="x_title">
+                                  <h2><b><%= title %></b></h2>
+
+                                  <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+
+                                  <table id="datatable-buttons" class="table table-striped table-bordered">
+                                    <thead>
+                                      <tr>
+                                        <th>No</th>
+                                        <th>Student Name</th>
+                                        <th>Roll Number</th>
+                                        <%for(var k = 0; k< subj.length; k++){%>
+                                        <th><%= subj[k].sub_name%></th>
+                                        <%}%>
+                                      </tr>
+                                    </thead>
+
+                                    <tbody>
+                                      <% for(var i = 0; i < users.length; i++) { %>
+                                      <tr>
+                                        <td><%= i+1 %></td>
+                                        <td><a id="a1" href="/admin/users/updategrade/<%= users[i].student_id %>"><%= users[i].name %></a></td>
+                                        <td><%= users[i].roll_no %></td>
+                                        <% for(var j = 0; j< subj.length;j++){%>
+                                          <td id="<%= i%><%=j%>"></td>
+
+                                          <script type="text/javascript">
+                                            $('#<%= i%><%=j%>').html((<%= users[i][subj[j].sub_name]%> > 81)? "A" :(<%= users[i][subj[j].sub_name]%> > 61)? "B" :(<%= users[i][subj[j].sub_name]%> > 41)? "C" :(<%= users[i][subj[j].sub_name]%> > 21)? "D" :(<%= users[i][subj[j].sub_name]%> > 10)? "E": "F");
+                                          </script>
+                                        <%}%>
+                                      </tr>
+                                      <% } %>
+                                    </tbody>
+
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+
+
+
+
+
+
+
+
+                          </div>
+
+                        </div>
+                    </div>
+
+
+                  </form>
+                </div>
+              </div>
+            </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <% include ../partial/footer %>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <% include ../partial/script %>
+
+  </body>
+</html>
