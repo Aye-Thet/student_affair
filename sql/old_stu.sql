@@ -13,7 +13,7 @@ CREATE TABLE db_STUaffair.old_student (
   religion VARCHAR(45) NULL,
   nationality VARCHAR(45) NOT NULL,
   address VARCHAR(128) NOT NULL,
-  phone_no INT NOT NULL,
+  phone_no INT(12) NOT NULL,
   father_name VARCHAR(45) NOT NULL,
   f_nrc VARCHAR(45) NOT NULL,
   f_occupation VARCHAR(128) NULL,

@@ -5,6 +5,7 @@ var Student = require('../../models/Student');
 var Newstudent = require('../../models/Newstudent');
 var Attendance = require('../../models/Attendance');
 var Subject = require('../../models/Subject');
+var CreateDB = require('../../models/CreateDB');
 
 /*GET student list page. */
 router.all('/list', function(req, res, next) {
@@ -61,12 +62,12 @@ router.post('/new', function(req, res, next) {
     req.body.high_school_success_year,
     req.body.high_school_roll_no,
     req.body.high_school_total_mark,
-    req.body.major,
     req.body.mat_cer,
     req.body.high_school_subject_mark,
     req.body.examiner_dep,
     req.body.health_rec,
     req.body.police_rec,
+    req.body.quarter_rec,
   ];
   Newstudent.addNew(params, function(err, result) {
     console.log('Data', params);
@@ -122,12 +123,12 @@ router.post('/new_modify', function(req, res, next) {
     req.body.high_school_success_year,
     req.body.high_school_roll_no,
     req.body.high_school_total_mark,
-    req.body.major,
     req.body.high_school_subject_mark,
     req.body.mat_cer,
     req.body.examiner_dep,
     req.body.health_rec,
     req.body.police_rec,
+    req.body.quarter_rec,
   ];
   Newstudent.findByID( req.body.new_stuid, function(err, users) {
     if (err) throw err;
@@ -274,6 +275,11 @@ router.post('/remove', function(req, res, next){
     req.flash('info', 'Successfully');
     res.redirect('/admin/users/list/?');
   });
+});
+
+/* IT . */
+router.get('/department', function(req, res, next) {
+  res.render('student/major/department', {title: "Department List"});
 });
 
 /* IT . */
@@ -434,6 +440,7 @@ router.all('/view_attendance_list', function(req, res, next) {
   });
 });
 
+/* GET init for attendance */
 router.get('/attendance/init', function(req, res, next) {
   var student = [];
   Student.find(function (err,stu) {
@@ -542,9 +549,120 @@ router.all('/sublist', function(req, res, next) {
   });
 });
 
-/* IT . */
-// router.get('/test2', function(req, res, next) {
-//   res.render('test2');
-// });
+/*GET Create Database . */
+router.get('/CreateDB', function(req, res, next) {
+  res.render('DB/CreateDB', {title: "Create Database"});
+});
+
+/*POST Crete Database . */
+router.post('/CreateDB', function(req, res, next) {
+  var params = [req.body.major, req.body.s_year];
+  var dbName = req.body.major + req.body.s_year;
+  console.log(params);
+  Subject.findClass(params, function(err, stu) {
+    if(err) next (err);
+    console.log('list',stu);
+    var name="";
+    var list = [];
+    for(var i = 0; i < stu.length; i++) {
+      name += ", "+ stu[i].sub_name+" INT(20) NOT NULL DEFAULT 0";
+    }
+    console.log('subj',name);
+    CreateDB.generate(dbName.toLowerCase(),name,function(err2, rtn) {
+      if(err2) next (err2);
+      Student.findStu(params,function (err3,rtn3) {
+        if(err3) next (err3);
+        for(var k in rtn3){
+          list.push([rtn3[k].student_id,rtn3[k].name]);
+        }
+        CreateDB.insertStu(dbName.toLowerCase(),list,function (err4,rtn4) {
+          if(err4) next (err4);
+          res.send('Successfully Create!!');
+        });
+      });
+    });
+
+  });
+});
+
+/*GET add student exammark. */
+router.get('/add_exammark', function(req, res, next) {
+  res.render('exammark/add_exammark');
+});
+
+/* Add Civil exammark. */
+router.get('/add_C_exammark', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('exammark/add/add_C_exammark', {users: users});
+  });
+});
+
+/* Add EC exammark. */
+router.get('/add_EC_exammark', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('exammark/add/add_EC_exammark', {users: users});
+  });
+});
+
+/* Add EP exammark. */
+router.get('/add_EP_exammark', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('exammark/add/add_EP_exammark', {users: users});
+  });
+});
+
+/* Add MP exammark. */
+router.get('/add_MP_exammark', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('exammark/add/add_MP_exammark', {users: users});
+  });
+});
+
+/* Add MC exammark. */
+router.get('/add_MC_exammark', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('exammark/add/add_MC_exammark', {users: users});
+  });
+});
+
+
+
+/* Add IT exammark. */
+router.get('/add_IT_exammark', function(req, res, next) {
+  Student.find(function(err, users) {
+    res.render('exammark/add/add_IT_exammark', {users: users});
+  });
+});
+
+/*GET student list page. */
+router.all('/add_exammark_list', function(req, res, next) {
+  var p = {
+    major: req.query.major,
+    year: req.query.year,
+  };
+  var params = p.major+ p.year;
+  CreateDB.findDB(params.toLowerCase(), function(err, users) {
+    if (err) next (err);
+    console.log('users', users);
+    res.render('exammark/add_exammark_list', {title: ' Add Stuent exammark List', users: users});
+  });
+});
+
+/* student detail for exammark . */
+router.get('/updatemark/:student_id', function(req, res, next) {
+  var dbName = req.query.m+ req.query.y;
+  var params = [req.query.m,req.query.y]
+  console.log(dbName);
+  var name =dbName.toLowerCase();
+  CreateDB.findByIDone(name,req.params.student_id,function(err, users) {
+    if(err) next (err);
+    console.log('lllllll',users);
+    Subject.findClass(params,function (err2,rtn2) {
+      if(err2) next (err2);
+      res.render('exammark/updatemark', {users: users[0],subj:rtn2});
+    });
+
+  });
+});
 
 module.exports = router;

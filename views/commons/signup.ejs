@@ -3,7 +3,7 @@
 <head>
   <% include ../partial/head %>
 
-  <title>Student Affair | </title>
+  <title>Student Affairs | </title>
 
 </head>
   <body class="login">
@@ -14,7 +14,7 @@
             <h1>Create Account</h1>
               <input type="text" name="name" class="form-control" placeholder="Username" required="" /><p>
               <input type="email" name="email" id="email" class="form-control" placeholder="Email" required="" /><p>
-              <input type="password" name="password" class="form-control" placeholder="Password" required="" /><p>
+              <input type="password" name="password" id="pass1" class="form-control" placeholder="Password" required="" /><p>
               <input type="password" name="repassword" class="form-control" placeholder="Confirm Password" required="" /><p>
               <input type="text" name="key" id="sec" class="form-control" placeholder="Security Key" required=""></p>
               <input type="button" class="btn btn-default submit" id="save" name="" value="Sign Up" disabled>
@@ -47,6 +47,15 @@
      console.log('#sec').val();
    })
      $(function () {
+
+       $('#pass1').on('blur', function(){
+            if(this.value.length < 8){ // checks the password value length
+               // alert('You have entered less than 8 characters for password');
+               // $(this).focus(); // focuses the current field.
+               return false; // stops the execution.
+            }
+        });
+
        $.validator.addMethod("pwcheck", function(value) {
          return /^[A-Za-z0-9\d=!\-@._*]*$/.test(value) // consists of only these
              && /[a-z]/.test(value) // has a lowercase letter
@@ -64,7 +73,7 @@
                },
                messages: {
                    password: {
-                     pwcheck: "Type in uppercase letters, lowercase letters, and numbers.",
+                     pwcheck: "Type in uppercase letters, lowercase letters, numbers and at least 8 characters.",
                    }
                },
            });

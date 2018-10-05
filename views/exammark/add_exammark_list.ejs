@@ -22,6 +22,10 @@
     td{
       background-color: powderblue;
     }
+    .month{
+      width: 80px;
+      height: 25px;
+    }
   </style>
 
   <body class="nav-md">
@@ -57,7 +61,7 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
-          <form class="" action="/admin/users/list" method="post">
+          <form class="" action="/admin/users/add_exammark_list" method="post">
 
           <div class="">
 
@@ -69,7 +73,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2><b> <%= title %></b></h2>
+                    <h2><b><%= title %></b></h2>
                     <div class="clearfix"></div>
                   </div>
 
@@ -79,15 +83,12 @@
                             <table class="table table-striped table-bordered" id="datatable">
                               <thead>
                                 <tr>
-                                  <th style="width: 5px">No</th>
+                                  <th>No</th>
                                   <th>Student ID</th>
                                   <th>Student Name</th>
-                                  <th>Major</th>
                                   <th>Roll Number</th>
-                                  <th>Father Name</th>
-                                  <th>Phone Number</th>
-                                  <th>Address</th>
-                                  <th>Academic</th>
+                                  <th>Major</th>
+                                  <th>Year</th>
                                 </tr>
                               </thead>
 
@@ -95,19 +96,17 @@
                                 <% for(var i = 0; i < users.length; i++) { %>
                                 <tr>
                                   <td><%= i+1 %></td>
-                                  <td><a id="a1" href="/admin/users/view/<%= users[i].old_stuid %>"> <%= users[i].student_id %></a></td>
-                                  <td><a id="a1" href="/admin/users/view/<%= users[i].old_stuid %>"><%= users[i].name %></a></td>
-                                  <td><%= users[i].major %></td>
+                                  <td><a id="a1" href="/admin/users/updatemark/<%= users[i].student_id %>?m=<%= users[i].major %>&y=<%= users[i].s_year %>"><%= users[i].student_id %></td>
+                                  <td><a id="a1" href="/admin/users/updatemark/<%= users[i].student_id %>?m=<%= users[i].major %>&y=<%= users[i].s_year %>"><%= users[i].name %></a></td>
                                   <td><%= users[i].roll_no %></td>
-                                  <td><%= users[i].father_name %></td>
-                                  <td><%= users[i].phone_no %></td>
-                                  <td><%= users[i].address %></td>
-                                  <td><%= users[i].academic-1 %>-<%= users[i].academic %></td>
+                                  <td><%= users[i].major %></td>
+                                  <td><%= users[i].s_year %></td>
+
                                 </tr>
                                 <% } %>
-
                               </tbody>
                             </table>
+
                           </div>
 
                         </div>
@@ -131,5 +130,4 @@
     <% include ../partial/script %>
 
   </body>
-
 </html>

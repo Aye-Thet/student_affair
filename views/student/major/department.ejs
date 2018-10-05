@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <% include ../partial/head %>
+    <% include ../../partial/head %>
     <title>Student Affairs | </title>
   </head>
 
@@ -42,23 +42,23 @@
             <div class="clearfix"></div>
 
             <!-- menu profile quick info -->
-            <% include ../partial/menu_profile %>
+            <% include ../../partial/menu_profile %>
             <!-- /menu profile quick info -->
 
             <br />
 
             <!-- sidebar menu -->
-            <% include ../partial/sidebar %>
+            <% include ../../partial/sidebar %>
             <!-- /sidebar menu -->
 
             <!-- /menu footer buttons -->
-            <% include ../partial/menu_footer %>
+            <% include ../../partial/menu_footer %>
             <!-- /menu footer buttons -->
           </div>
         </div>
 
         <!-- top navigation -->
-        <% include ../partial/top_nav %>
+        <% include ../../partial/top_nav %>
         <!-- /top navigation -->
 
         <!-- page content -->
@@ -70,6 +70,21 @@
               <div class="x_panel">
                 <div class="x_title">
                   <h2>List of Department</h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Settings 1</a>
+                        </li>
+                        <li><a href="#">Settings 2</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                  </ul>
                   <div class="clearfix"></div>
 
                   <table class="table table-striped">
@@ -81,27 +96,27 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td><a href="/admin/users/add_C_attendance"> Civil </a></td>
+                        <td><a href="/admin/users/C"> Civil </a></td>
                         <td>97</td>
                       </tr>
                       <tr>
-                        <td><a href="/admin/users/add_EC_attendance"> Electronic Communication </a></td>
+                        <td><a href="/admin/users/EC"> Electronic Communication </a></td>
                         <td>84</td>
                       </tr>
                       <tr>
-                        <td><a href="/admin/users/add_EP_attendance"> Electronic Power </a></td>
+                        <td><a href="/admin/users/EP"> Electronic Power </a></td>
                         <td>84</td>
                       </tr>
                       <tr>
-                        <td><a href="/admin/users/add_MP_attendance"> Mechanical Power </a></td>
+                        <td><a href="/admin/users/MP"> Mechanical Power </a></td>
                         <td>77</td>
                       </tr>
                       <tr>
-                        <td><a href="/admin/users/add_IT_attendance"> Informaton Technology </a></td>
+                        <td><a href="/admin/users/IT"> Informaton Technology </a></td>
                         <td>74</td>
                       </tr>
                       <tr>
-                        <td><a href="/admin/users/add_MC_attendance"> Mechanical </a></td>
+                        <td><a href="/admin/users/MC"> Mechanical </a></td>
                         <td>70</td>
                       </tr>
                     </tbody>
@@ -115,11 +130,11 @@
         <!-- /page content -->
 
         <!-- footer content -->
-        <% include ../partial/footer %>
+        <% include ../../partial/footer %>
         <!-- /footer content -->
       </div>
     </div>
 
-    <% include ../partial/script %>
+    <% include ../../partial/script %>
   </body>
 </html>

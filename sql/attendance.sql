@@ -1,5 +1,5 @@
 CREATE TABLE db_STUaffair.attendance (
-  attendance_id INT NOT NULL,
+  attendance_id INT NOT NULL AUTO_INCREMENT,
   name VARCHAR(45) NOT NULL,
   roll_no VARCHAR(45) NOT NULL,
   december NVARCHAR(20) NOT NULL,

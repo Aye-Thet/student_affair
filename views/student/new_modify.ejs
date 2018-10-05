@@ -3,7 +3,7 @@
   <head>
     <% include ../partial/head %>
 
-    <title>Student Affair System | </title>
+    <title>Student Affairs System | </title>
 
   </head>
 
@@ -23,7 +23,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="/home" class="site_title"><i class="fa fa-leaf"></i> <span>Student Affair</span></a>
+              <a href="/home" class="site_title"><i class="fa fa-leaf"></i> <span>Student Affairs</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -255,7 +255,7 @@
                       </div>
 
                       <div class="item form-group">
-                        <label for="high_school_success_year" class="control-label col-md-4 col-sm-3 col-xs-12">High School Success Year <span class="required">*</span>
+                        <label for="high_school_success_year" class="control-label col-md-4 col-sm-3 col-xs-12"> Success Year <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
                           <input type="date" name="high_school_success_year" id="high_school_success_year" required="required" value="<%= users.high_school_success_year %>" class="form-control col-md-7 col-xs-12">
@@ -263,7 +263,7 @@
                       </div>
 
                       <div class="item form-group">
-                        <label for="high_school_roll_no" class="control-label col-md-4 col-sm-3 col-xs-12">High School Roll No. <span class="required">*</span>
+                        <label for="high_school_roll_no" class="control-label col-md-4 col-sm-3 col-xs-12">Exam Seat No. <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
                           <input type="text" name="high_school_roll_no" id="high_school_roll_no" required="required" value="<%= users.high_school_roll_no %>" class="form-control col-md-7 col-xs-12">
@@ -279,7 +279,7 @@
                       </div>
 
                       <div class="item form-group">
-                        <label for="high_school_total_mark" class="control-label col-md-4 col-sm-3 col-xs-12">High School Total Mark <span class="required">*</span>
+                        <label for="high_school_total_mark" class="control-label col-md-4 col-sm-3 col-xs-12">Exam's Total Mark <span class="required">*</span>
                         </label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
                           <input type="number" name="high_school_total_mark" id="high_school_total_mark" required="required" min="240" max="600" value="<%= users.high_school_total_mark %>" class="form-control col-md-7 col-xs-12">
@@ -305,13 +305,15 @@
 
                       <div class="" role="tabpanel" data-example-id="togglable-tabs">
                         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-                          <li role="presentation" class="active"><a href="#mat_cer" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Matriculation Certificate</a>
+                          <li role="presentation" class="active"><a href="#mat_cer" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Matriculation Exam Certificate</a>
                           </li>
-                          <li role="presentation" class=""><a href="#subject_mark" id="home-tab2" role="tab" data-toggle="tab" aria-expanded="false">High School Subject Mark</a>
+                          <li role="presentation" class=""><a href="#subject_mark" id="home-tab2" role="tab" data-toggle="tab" aria-expanded="false">Exam's Subject Mark</a>
                           </li>
-                          <li role="presentation" class=""><a href="#health" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Health Recommendation</a>
+                          <li role="presentation" class=""><a href="#health" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Medical Recommendation</a>
                           </li>
                           <li role="presentation" class=""><a href="#police" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Police Recommendation</a>
+                          </li>
+                          <li role="presentation" class=""><a href="#quarter" role="tab" id="profile-tab3" data-toggle="tab" aria-expanded="false">Quarter Recommendation</a>
                           </li>
                         </ul>
                         <div id="myTabContent" class="tab-content">
@@ -375,6 +377,21 @@
                             <img src="/images/<%= users.police_rec %>" alt="" style="width: 300px; height: 400px"><br>
                             <input id="police_rec" name="police_rec" required="required" type="file" accept="image/x-png,image/gif,image/jpeg">
                           </div>
+
+                          <div role="tabpanel" class="tab-pane fade" id="quarter" aria-labelledby="profile-tab">
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            <img src="/images/<%= users.quarter_rec %>" alt="" style="width: 300px; height: 400px"><br>
+                            <input id="quarter_rec" name="quarter_rec" required="required" type="file" accept="image/x-png,image/gif,image/jpeg">
+                          </div>
+
+
                         </div>
                       </div>
 

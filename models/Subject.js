@@ -23,6 +23,11 @@ var Subject = {
     sql += " WHERE sub_name LIKE concat('%', ?, '%')";
     return db.query(sql, params, callback);
   },
+  findClass: function(params, callback){
+    console.log('call',params);
+    var sql = "SELECT sub_name FROM subject WHERE major =? AND s_year =?";
+    return db.query(sql, params, callback);
+  }
 };
 
 module.exports = Subject;

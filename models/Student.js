@@ -27,6 +27,10 @@ var Student = {
     if(params[0] != undefined && params[1] != undefined) sql +="WHERE s_year = ? AND major = ?";
     return db.query(sql, params, callback);
   },
+  findStu: function(params, callback){
+    var sql = "SELECT student_id, name FROM old_student WHERE major =? AND s_year =?";
+    return db.query(sql, params, callback);
+  }
   // compare: function(cleartext, encrypted){
   //   return bcrypt.compareSync(cleartext, encrypted);
   // }
